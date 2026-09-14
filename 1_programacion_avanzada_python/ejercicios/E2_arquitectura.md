@@ -50,6 +50,13 @@ Elimina al menos: un nombre críptico, un número mágico y un `print` de depura
 
 Añade `JsonSalesRepository` (lee un `.json` lista de records) sin tocar `metrics.py`.
 
+## Puente al Proyecto I
+
+El Proyecto I tiene **dos entregas obligatorias** (`proyectos/proyecto_i/`):
+
+1. **Parte A** — pipeline sobre `ventas.csv` (este ejercicio es el núcleo).
+2. **Parte B** — el mismo enfoque con un dataset público elegido de internet.
+
 ## Hecho cuando…
 
 El CLI corre y el DESIGN.md cita 3 principios con anclaje real al código.

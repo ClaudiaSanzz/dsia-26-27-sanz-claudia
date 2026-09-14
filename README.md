@@ -83,7 +83,7 @@ En las sesiones lectivas: **30 min exposición + 30 min ejercicios** + ~45 min d
 
 | Elemento | Peso | Temas |
 | --- | --- | --- |
-| **Proyecto I** — Programación avanzada en Python | **10 %** | Tema 1 |
+| **Proyecto I** — Programación avanzada en Python (ventas + dataset de internet) | **10 %** | Tema 1 |
 | **Proyecto II** — Automatización e integración de servicios | **20 %** | Temas 2, 3 y 4 |
 | **Proyecto III** — Desarrollo End-to-End | **40 %** | Temas 1–5 |
 | **Examen final** teórico-práctico | **30 %** | Temas 1–5 |

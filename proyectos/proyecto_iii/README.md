@@ -5,6 +5,12 @@
 **Release Candidate:** 23 de noviembre de 2026  
 **Exposiciones:** 30 de noviembre de 2026
 
+## Continuidad desde el Proyecto II
+
+Este proyecto **amplía la base entregada en el Proyecto II** (mismo repo, mismo dominio, mismos datos y cliente de IA).
+
+No se cambia de tema salvo causa justificada y acordada. El trabajo de octubre (pipeline, tests, mock/real) es el núcleo; aquí se completa el ciclo E2E.
+
 ## Objetivo
 
 Diseñar, implementar, probar y desplegar una **solución completa** de datos e IA:
@@ -17,8 +23,8 @@ Puede ser una API, un cuadro de mando, o una aplicación que combine ambos.
 
 ## Requisitos mínimos
 
-1. Arquitectura modular y README claro.
-2. Procesamiento de datos real (CSV, API pública o dataset propio).
+1. Arquitectura modular y README claro (evolución del repo del Proyecto II).
+2. Procesamiento de datos real (el dataset elegido en el II, salvo ampliación justificada).
 3. Integración con IA (proveedor o mock justificado + interfaz lista para producción).
 4. Pruebas automatizadas y evidencia de CI (GitHub Actions u otro).
 5. Despliegue accesible **o** empaquetado listo con instrucciones verificables.
