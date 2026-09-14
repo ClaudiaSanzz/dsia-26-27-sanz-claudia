@@ -1,7 +1,7 @@
 # IA generativa aplicada al desarrollo
 
 
-## Exposición — principios (compartidos 10 y 17 nov)
+## Exposición — principios (sesión 23 nov)
 
 1. **Tú entregas** el código: la IA sugiere.
 2. Flujo: Contexto → Prompt → Borrador → Revisión → Tests → Commit.

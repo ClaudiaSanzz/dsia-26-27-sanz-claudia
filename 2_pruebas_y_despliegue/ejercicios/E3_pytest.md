@@ -1,6 +1,6 @@
 # E3 — pytest sobre el pipeline de ventas (30 min)
 
-**Sesión:** 29 sep 2026
+**Sesión:** 28 sep 2026
 
 ## Parte 0 — Calentamiento (5 min)
 

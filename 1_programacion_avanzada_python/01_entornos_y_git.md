@@ -1,4 +1,4 @@
-# Sesión 8 sep 2026 — Entornos virtuales Python y control de versiones (Git/GitHub)
+# Sesión 7 sep 2026 — Entornos virtuales Python y control de versiones (Git/GitHub)
 
 | Recurso | Fichero |
 | --- | --- |
@@ -1007,11 +1007,11 @@ Responde por escrito en `sesion01.md`:
 
 ---
 
-## 10. Para la sesión del 15 sep
+## 10. Para la sesión del 14 sep
 
 1. Deja el venv listo (no lo borres si funciona).  
 2. Abre `Datos/ventas.csv`.  
-3. Ojea `02_pandas_procesamiento.ipynb` y `proyectos/proyecto_i/`.  
+3. Ojea `02_pandas_datos.ipynb` y `proyectos/proyecto_i/`.  
 4. Trae el repo personal operativo: ahí vivirás el Proyecto I.
 
 ---

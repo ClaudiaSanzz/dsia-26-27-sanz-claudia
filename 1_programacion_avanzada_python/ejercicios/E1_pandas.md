@@ -1,13 +1,13 @@
 # E1 — Procesamiento de datos con pandas (30 min)
 
-**Sesión:** 15 sep 2026  
+**Sesión:** 14 sep 2026  
 **Dataset:** `../Datos/ventas.csv`
 
-## Preparación (antes de arrancar el cronómetro)
+## Preparación (antes de arrancar)
 
 ```bash
 cd 1_programacion_avanzada_python
-# opcional: trabaja en el notebook 02_pandas_procesamiento.ipynb
+# opcional: trabaja en el notebook 02_pandas_datos.ipynb
 # o en un script propio ejercicios/solucion_e1.py
 ```
 

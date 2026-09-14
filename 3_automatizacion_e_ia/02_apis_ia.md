@@ -1,4 +1,4 @@
-# Sesión 13 oct 2026 — APIs de IA (OpenAI, Anthropic, Hugging Face)
+# Sesión 19 oct 2026 — APIs de IA (OpenAI, Anthropic, Hugging Face)
 
 Ejercicio 30 min: `ejercicios/E5_apis_ia.md`  
 Demo: `ejemplos/ai_api_client.py`

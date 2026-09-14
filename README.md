@@ -68,20 +68,16 @@ En las sesiones lectivas: **30 min exposición + 30 min ejercicios** + ~45 min d
 
 | Fecha | Contenido | Material público |
 | --- | --- | --- |
-| **8 sep** | Presentación + entornos virtuales Python + Git/GitHub | `1_programacion_avanzada_python/01_entornos_y_git.md` |
-| **15 sep** | Pandas + ejercicios + presentación Proyecto I | `1_programacion_avanzada_python/02_pandas_procesamiento.ipynb` |
-| **22 sep** | Arquitectura, Clean Code y SOLID + ejercicios | `1_programacion_avanzada_python/03_arquitectura_patrones.md` |
-| **29 sep** | pytest + ejercicios | `2_pruebas_y_despliegue/` |
-| **6 oct** | Data flows + proyecto | `3_automatizacion_e_ia/` |
-| **13 oct** | APIs de IA + proyecto | `3_automatizacion_e_ia/` |
-| **20 oct** | E2E I + presentación Trabajo Final | `5_desarrollo_end_to_end/` · `proyectos/proyecto_iii/` |
-| **27 oct** | E2E II: robustez y logging | `5_desarrollo_end_to_end/` |
-| **3 nov** | Despliegue a producción | `5_desarrollo_end_to_end/` |
-| **10 nov** | Claude Code / Gemini CLI / Cursor | `4_entornos_ia_generativa/` |
-| **17 nov** | Review + RC con IA | `4_entornos_ia_generativa/` |
-| **24 nov** | Trabajo en el proyecto final | — |
-| **1 dic** | Presentación Trabajo Final (1/2) | — |
-| **8 dic** | Presentación Trabajo Final (2/2) | — |
+| **7 sep** | Presentación + entornos virtuales Python + Git/GitHub | `1_programacion_avanzada_python/01_entornos_y_git.md` |
+| **14 sep** | Pandas + ejercicios + presentación Proyecto I | `1_programacion_avanzada_python/02_pandas_datos.ipynb` |
+| **21 sep** | Arquitectura, Clean Code y SOLID + ejercicios | `1_programacion_avanzada_python/03_arquitectura_patrones.md` |
+| **28 sep** | pytest + ejercicios | `2_pruebas_y_despliegue/` |
+| **5 oct** | Data flows + proyecto | `3_automatizacion_e_ia/` |
+| **19 oct** | APIs de IA + presentación Trabajo Final | `3_automatizacion_e_ia/` · `proyectos/proyecto_iii/` |
+| **26 oct** | E2E I: arquitectura del flujo | `5_desarrollo_end_to_end/` |
+| **16 nov** | E2E II: robustez, logging y despliegue | `5_desarrollo_end_to_end/` |
+| **23 nov** | Claude Code / Gemini CLI / Cursor + Release Candidate | `4_entornos_ia_generativa/` |
+| **30 nov** | Presentación Trabajo Final | — |
 
 ## Evaluación ordinaria
 

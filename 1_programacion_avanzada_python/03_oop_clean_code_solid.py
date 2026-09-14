@@ -1,5 +1,5 @@
 """
-Sesión 3 (22 sep 2026): OOP, Clean Code y SOLID — ejemplo guiado.
+Sesión 3 (21 sep 2026): OOP, Clean Code y SOLID — ejemplo guiado.
 
 Ejecutar desde la raíz del repo o desde esta carpeta:
     python 03_oop_clean_code_solid.py

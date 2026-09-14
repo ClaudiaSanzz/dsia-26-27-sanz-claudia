@@ -1,4 +1,4 @@
-# Sesión 29 sep 2026 — pytest, test suites y aserciones
+# Sesión 28 sep 2026 — pytest, test suites y aserciones
 
 Ejercicio 30 min: `ejercicios/E3_pytest.md`
 

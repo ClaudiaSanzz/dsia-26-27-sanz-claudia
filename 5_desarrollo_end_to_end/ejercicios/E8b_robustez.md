@@ -1,6 +1,6 @@
 # E8b — Robustez y logging (30 min)
 
-**Sesión:** 27 oct 2026
+**Sesión:** 16 nov 2026
 
 ## Parte 1 — Correlación (8 min)
 

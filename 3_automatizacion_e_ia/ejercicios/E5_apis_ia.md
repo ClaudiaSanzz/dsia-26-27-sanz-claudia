@@ -1,6 +1,6 @@
 # E5 — Cliente multi-API de IA (30 min)
 
-**Sesión:** 13 oct 2026  
+**Sesión:** 19 oct 2026  
 **Base:** `../ejemplos/ai_api_client.py`
 
 ## Parte 1 — Smoke mock (5 min)

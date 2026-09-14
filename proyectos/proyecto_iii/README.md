@@ -1,9 +1,9 @@
 # Proyecto III — Desarrollo End-to-End (40 %)
 
 **Temas:** 1–5  
-**Presentación del enunciado:** 20 de octubre de 2026  
-**Release Candidate:** 17 de noviembre de 2026  
-**Exposiciones:** 1 y 8 de diciembre de 2026
+**Presentación del enunciado:** 19 de octubre de 2026  
+**Release Candidate:** 23 de noviembre de 2026  
+**Exposiciones:** 30 de noviembre de 2026
 
 ## Objetivo
 

@@ -1,6 +1,6 @@
 # E8 — Flujo E2E mínimo (30 min)
 
-**Sesión:** 20 oct 2026  
+**Sesión:** 26 oct 2026  
 **Base:** `../plantilla_proyecto/`
 
 ## Parte 1 — Levantar plantilla (8 min)

@@ -1,6 +1,6 @@
 # E0 — Entornos virtuales y Git/GitHub
 
-**Sesión:** 8 sep 2026  
+**Sesión:** 7 sep 2026  
 **Referencia:** [`../01_entornos_y_git.md`](../01_entornos_y_git.md)
 
 ## Checklist rápido

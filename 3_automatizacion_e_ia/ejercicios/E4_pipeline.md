@@ -1,6 +1,6 @@
 # E4 — Pipeline de datos robusto (30 min)
 
-**Sesión:** 6 oct 2026  
+**Sesión:** 5 oct 2026  
 **Base:** `../ejemplos/pipeline_ventas.py`
 
 ## Parte 1 — Contrato de columnas (8 min)

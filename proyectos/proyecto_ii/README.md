@@ -2,7 +2,7 @@
 
 **Temas:** 2, 3 y 4  
 **Trabajo continuo:** octubre 2026  
-**Hito de presentación del Trabajo Final (enunciado E2E):** 20 de octubre de 2026
+**Hito de presentación del Trabajo Final (enunciado E2E):** 19 de octubre de 2026
 
 ## Objetivo
 
@@ -10,6 +10,7 @@ Automatizar un proceso de datos e integrar al menos un **servicio de IA vía API
 
 ## Requisitos mínimos
 
+0. Elección de datos para tu proyecto iii.
 1. Pipeline reproducible (CLI o job) con logs.
 2. Tests pytest (unitarios + al menos un test de integración o marcado).
 3. Cliente de IA con modo `mock` y un proveedor real documentado (si no hay clave, mock + diseño listo).
