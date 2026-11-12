@@ -1,0 +1,761 @@
+itemId,reviewId,name,sentimiento
+4763398,890166072,Abonavida,positivo
+13369492,890311953,Acid Cafe,negativo
+5992666,883140694,Acquolina,positivo
+4086773,826664757,Adolfo Dominguez,negativo
+15575884,889489164,Adorado,positivo
+21182567,869916160,Agrado Cafe,positivo
+11871038,790867873,Akalanka,positivo
+17806488,818919988,Akela Bar Mirasierra,negativo
+2342462,839684449,Alma Cafe bar bistro,positivo
+15679698,828000232,Alma de Pan,positivo
+18930235,894155021,Almalibre Acai House Madrid,positivo
+11923298,823448628,Alopeke Centro Infantil,neutro
+10086609,830432235,Amorino - Corte Ingles Callao,positivo
+19332563,872018135,AnteLaDuda,positivo
+6507879,664061889,Anticafe,positivo
+2259871,884810037,Antigua Pasteleria del Pozo,positivo
+13974281,884475307,Aroma and Bread,positivo
+11908506,776122534,Aroma Cafe,positivo
+23610644,891093975,Arquibar De Goya,positivo
+5540032,690164384,Audrey Bread and Coffee,positivo
+21326678,866861458,Aura Cafe,positivo
+6885282,873509645,Autogrill Iberia SL,negativo
+10270558,864901570,Bajo Cero,negativo
+18968944,768481548,Bamboo Natural Bar,positivo
+4587126,776608958,Bar Bahia,positivo
+10804779,668575500,Bar Cafeteria Tormes,positivo
+991613,776698984,Bar Casla,positivo
+4028773,837954993,Bar Eduardo,positivo
+4090438,891863987,Bar Eduardo,positivo
+21294580,888269978,Bar El Ensanche,positivo
+2717867,855893670,Bar el Rincon de Ana,positivo
+9847743,758661634,Bar Fomento,positivo
+4100695,705256490,Bar Hnos. Rodriguez,positivo
+17168861,788047740,Bar Justo,positivo
+8428506,873418947,Bar La Gloria,positivo
+8052275,893273641,Bar La Santa,neutro
+7226122,864804624,Bar Manolo,positivo
+10007089,889411830,Bar Muniz,positivo
+12417446,751296312,Bar Restaurante La Bublioteca,positivo
+3470960,868528771,Bar restaurante Pascual,negativo
+8287507,877833790,Bar Restaurante Penjamo,positivo
+4174628,838945312,Bar Santos,negativo
+4171593,776232789,Bar Santos Madrid,positivo
+15306753,891719811,Barehua,positivo
+17803062,858595321,Bari,negativo
+18313601,734796062,Barista Casual Food & Gin,positivo
+16718191,813575007,Barman Hookah,negativo
+4492717,780854960,Belros,negativo
+19805013,777213403,Bendetta,positivo
+8497939,893231207,Bendita Locura Coffee & Dreams,negativo
+17779415,740271411,Bertiz,negativo
+9981918,789427273,Bianchi Kiosko Cafe,positivo
+9737054,892072433,Bianco Cafe,negativo
+11180525,825756799,Biscotto,positivo
+15322633,888624156,Bite Me Cafe,positivo
+16696134,751251934,Black Poplar Espresso,positivo
+19096079,768733331,Blossom's Coffee Shops,positivo
+8093048,748543953,Bluefields Madrid,positivo
+21392109,784731855,Boa Massa,positivo
+12094921,890867857,Bocono Specialty Coffee Roaster,positivo
+8670260,879078170,Bon Appetit,negativo
+13804220,738938490,Bosco bistro los Jeronimos,negativo
+24934992,890043346,Brotes Madrid,positivo
+3477858,893094343,Brown Bear Bakery,positivo
+12209860,893110659,Brunch Club Cafe,positivo
+7084576,885086292,Bulevar,negativo
+15873898,661869627,Bun Golden Coffee,positivo
+12863077,822354466,Bunny's Deli,positivo
+21206499,887081432,Cafe 31 Bakery & Food,positivo
+10688886,739429887,Cafe & Tapas,positivo
+8689583,864465966,Cafe & Te,positivo
+10713748,893831531,Cafe & Te,negativo
+7243807,892912403,Cafe & Te,positivo
+697455,892916419,Cafe & Te,positivo
+11748947,889424534,Cafe & Te,negativo
+11626543,877848064,Cafe & Te,negativo
+2446088,665425470,Cafe & Te,positivo
+11749072,878117064,Cafe & Te,negativo
+6439994,867526483,Cafe Ajenjo,positivo
+12534083,887442038,Cafe Angelica,positivo
+4700371,872748762,Cafe Bar Orfran,positivo
+1025718,874542984,Cafe Belen,positivo
+697440,893986842,Cafe Comercial,neutro
+13535628,853826106,Cafe de la Estacion Aluche,negativo
+10112232,884879155,Cafe de la Estacion Atocha,positivo
+13993971,735650377,Cafe de la Estacion Chamartin,positivo
+2361758,891149449,Cafe de la Luz,positivo
+10377971,859534053,Cafe de la Riviere,positivo
+697444,893123716,Cafe de los Austrias,negativo
+3832544,744271604,Cafe de Mahon,positivo
+697445,891387274,Cafe de Oriente,positivo
+13440369,885371275,Cafe de Ratas,positivo
+2213331,890851985,Cafe del Art,positivo
+3159822,782705418,Cafe del Jadin,positivo
+4589315,885308494,Cafe del Monaguillo,positivo
+4040567,786826418,Cafe del Patio,positivo
+3459333,889760402,Cafe del Real,positivo
+2259750,777866753,Cafe del Ruiz,positivo
+9788485,878360032,Cafe Del Teatro,positivo
+11841817,884438798,Cafe El Viejo Madrid,positivo
+12504874,660852373,Cafe Farmacia,positivo
+7924014,837597217,Cafe Figueroa,negativo
+3802624,874852418,Cafe Green Bakery,positivo
+697451,873522778,Cafe Manuela,positivo
+4939906,847366117,Cafe Moderno,neutro
+8445169,885947002,Cafe Prado,positivo
+10180884,844585332,Cafe Praga,negativo
+15322595,735850020,Cafe Raizal,negativo
+17548992,884324150,Cafe Run Run Run,positivo
+8425449,862153710,Cafe Tres Olivos,negativo
+11791770,891183332,Cafe Universal,positivo
+4236133,779129355,Cafe Vait,negativo
+1780605,884994679,Cafe Vergara Bar,positivo
+15640123,749741739,Cafe y Pan,positivo
+8747993,778680358,Cafe Yola,positivo
+7080011,885627104,Cafelito,positivo
+4481341,851978783,Cafes Arrivederci,positivo
+19597685,835693620,Cafes Guayacan,negativo
+10093756,882463616,Cafes La Mexicana,positivo
+12078172,757265652,Cafeteria Cachitos,positivo
+12448747,865136479,Cafeteria Caracas,neutro
+11903571,836561853,Cafeteria Cartagena 93,positivo
+6484214,893383958,Cafeteria Churreria Legazpi,positivo
+10175641,883423382,Cafeteria Corte Ingles Nuevos Ministerios,negativo
+6478573,858873599,Cafeteria de La Casa Encendida,negativo
+3905539,893987808,Cafeteria del Hotel Europa,positivo
+1957191,876827533,Cafeteria Dulcinea,negativo
+4224574,882291055,Cafeteria Esparteros,neutro
+1888298,883043641,Cafeteria HD,positivo
+12071142,822199950,Cafeteria Jara,positivo
+14987153,883120251,Cafeteria Jemein,positivo
+4777647,881552130,Cafeteria La Parisiena Madrid,negativo
+18930032,886879121,Cafeteria La Tradicion,positivo
+4133810,853617280,Cafeteria Le Petit Madrid,negativo
+4778309,875144135,Cafeteria Los Jeronimo,negativo
+9593981,870968869,Cafeteria Panaderia Granier,positivo
+4471507,815717896,Cafeteria Restaurante Florida Norte Madrid,neutro
+4750473,893354807,Cafeteria San Ildefonso,negativo
+4290010,887913083,Cafeteria Santander Camuy,positivo
+12476939,836555136,Cafeteria Sirius,positivo
+9695210,885285163,Cafeteria Trebol,positivo
+15227443,887559278,Cafetin,positivo
+7259984,891495639,Caffe Del Arte,positivo
+3415822,891022290,caffeteria museo Thyssen Bornemisza,negativo
+5616662,876523033,Calendula Cafe,negativo
+23790240,892541535,Camerino,positivo
+3853503,866938314,Carbones cafe,positivo
+1089322,892153749,Casa Dani,positivo
+4750461,886772600,Casa Ruth,positivo
+17370372,688694692,Casa Santiago,positivo
+10246521,738519749,Ccafeteria Pasteleria Charlot,positivo
+10310711,890341805,Celicioso by Only YOU Hotels,negativo
+13189468,883640130,Celicioso Callao,negativo
+3637225,890549185,Celicioso Hortaleza,negativo
+8001290,772588673,Celikatessen,positivo
+1552108,888553204,Central Cafe,neutro
+13273572,752623518,Cereal Hunters,positivo
+10354323,877497969,Cereal Hunters Cafe,positivo
+13140269,759325530,Cereal Monkeys,positivo
+16805849,676889737,Cereal Valley Cafe,positivo
+3847114,888213665,Cerveceria La Plaza,negativo
+4996155,845436043,Cerveceria Martin,positivo
+11045884,848258991,Cerveceria Montemayor,negativo
+9729056,835081640,Cerveceria Sureste,negativo
+15758635,785488732,Chachara Cafe,negativo
+5508147,676198498,Charlotte,negativo
+5796099,744802209,Charlotte Madrid,positivo
+24977775,867914687,Chia Chill Cafe,positivo
+19888523,894170215,CHILA,positivo
+4065636,893220965,Chocolateria 1902,positivo
+9703968,852368574,Chocolateria Churreria Milagros,positivo
+7626475,837625880,Chocolateria de la Puerta del Sol,negativo
+1027419,894291687,Chocolateria San Gines,positivo
+13219718,884282103,Chocolateria San Gines,positivo
+14344384,893296740,Chocolateria Tacita de Plata,positivo
+2588010,889468035,Chocolateria Valor,negativo
+16800567,891490110,Chocolateria Valor,positivo
+1164044,890210821,Chocolaterias Valor,negativo
+15522713,863418038,Churreria Chocolateria El Artesano Desde 1983,positivo
+15584156,851854595,Churreria El Artesano,negativo
+6871114,888910041,Churreria Formula Nietos,positivo
+8024439,888682863,Churreria La Mejor,positivo
+14008923,881578480,Churreria La Mejor,positivo
+12438350,880346967,Churreria Los Cunados,positivo
+8856013,831856342,Churreria Pinilla,positivo
+19598072,893880153,Churreria Quinta Generacion,positivo
+20957279,849100828,Churreria San Jose,positivo
+15816839,741784123,Churreria Segovianos,positivo
+12220611,868316263,Churreria Siglo XIX,neutro
+8808426,883145583,Churreria-Chocolateria Las Farolas,positivo
+13424680,870927884,Ciento Treinta Grados,positivo
+8279300,748912683,Coffee & Kicks,positivo
+6434646,758957094,Coffee & Salads,negativo
+17792555,757290412,Coffee Code,positivo
+6686890,868887090,Confiteria Marques Madrid,positivo
+18921625,876859417,Convexo,positivo
+15148178,883146542,The Cookie Lab,positivo
+7732090,466428102,Cosmen & Keiless - Salesas,positivo
+10486297,742640175,Cripeka Cafe - Tienda Gourmet Italiana,negativo
+13223148,767724475,Cris Cafe,negativo
+11870900,885096831,Croqueta y Presumida,positivo
+19383624,839803012,Croqueteria Focos,negativo
+23150110,826794656,Crudo,positivo
+11694289,883483134,Crusto,negativo
+7856584,888964131,Crusto,negativo
+12261559,880912568,Crusto Bakery Padre Damian,negativo
+15293984,883122432,Crusto Hortaleza,negativo
+2696569,881098044,Cruz Blanca Marques de Vadillo,positivo
+6664450,885153028,C&Tapas,negativo
+20278274,791318962,C&Tapas,neutro
+6563811,831896705,C&Tapas,negativo
+6563808,798327359,C&Tapas,negativo
+10688729,871251881,C&Tapas,neutro
+6563806,890696668,C&Tapas,positivo
+2492660,774396875,4D Caffetteria,positivo
+13987212,885799050,d Picnic,negativo
+3791283,893613129,Dala's,positivo
+14060648,878270638,Dcandeal,negativo
+3180566,891475618,Delic,positivo
+11733283,893107564,Deli&Cia,positivo
+21007785,799053167,Delifresh Bakery,negativo
+3830350,880447424,Delina's,negativo
+13002276,885273106,Delish Vegan Doughnuts,negativo
+25105852,874412790,Dick Waffle La Polleria de Chueca,positivo
+15131662,761090157,Dilieto,positivo
+21199295,869908016,Distrito 1 - Las Tablas,positivo
+3748757,881351281,D.O.C.C. Prado,positivo
+23720964,826789958,Don Amable,positivo
+12614143,867492075,Dr Limon,positivo
+4736037,889321035,"DUNKIN""",negativo
+14098253,784483002,"DUNKIN""",positivo
+8588612,840318739,"DUNKIN""",negativo
+6417798,880170682,Dunkin',positivo
+21283102,870602692,East Crema Coffee Almirante,positivo
+20284702,893841966,Eatmytrip Brunch & Cocktails Madrid,positivo
+7951489,787850424,El Almacen Argentino,positivo
+3139185,870423544,El Barco,negativo
+15211475,822587777,El Barrio,positivo
+8026396,893860885,El Brillante,negativo
+697528,888421015,El Cafe de La Opera,negativo
+7296559,879488843,El Cafe de la Reina,positivo
+11945842,859027826,El Caneo,positivo
+7088712,841103026,el kiosko de pan,positivo
+4235233,732571679,El Mentidero cafe,neutro
+13130283,888340235,El Pabellon,positivo
+3989751,892792210,El Patio Vertical,positivo
+17168891,894297633,El Perro de Pavlov,positivo
+11644577,859303654,El Rinconcito De La Cabana,positivo
+1602958,891912559,El Riojano,positivo
+6715431,671897730,El Rubio Restaurant,positivo
+13203618,626839284,El secreto de Madrid club gastronomico,positivo
+4564310,817774468,El Tazon,positivo
+12895646,755656795,Empanada Express,positivo
+11920804,843915653,Enciso Gastrobar,positivo
+14134370,726343656,Espacio Vian,positivo
+12869791,839808784,Faborit,positivo
+9998283,891570351,Faborit Alcala 61,negativo
+3136992,888672332,Faborit Cortes,positivo
+13133233,884777908,Faborit Goya 24,negativo
+9829779,891693557,Faborit Plaza de Espana,positivo
+4470956,748137086,Faborit San Bernardo,positivo
+9752402,892893371,Faborit Velazquez,positivo
+23322154,827258010,Fans Coffee&bakery,positivo
+15076528,872477200,Faraday,negativo
+5536110,893391901,Federal Cafe,positivo
+12383530,892941950,Federal Cafe Conde Barajas,positivo
+18968315,893335529,Feliz Coffee,positivo
+9592802,883399139,Ferros Cafe,negativo
+10361300,890856262,Fismuler,positivo
+14168047,886864792,The Fix,positivo
+13404168,723288148,Food King,positivo
+8855921,788649670,Foodissimo,positivo
+2260597,874226063,Formentor,negativo
+14123503,891329643,Freedom Cakes Cafe,positivo
+10271724,744896648,Frisbee,positivo
+15739772,883254515,Frutas Prohibidas,positivo
+12122808,728184429,3g's Lounge Bar Snacks,positivo
+3783556,875021760,Gago III,negativo
+6716204,751858132,Global Cafe - Hotel Husa Princesa,positivo
+18977603,888864342,0% Gluten,positivo
+14783794,783380944,Goofretti Postas,negativo
+3318746,889416754,Gran Cafe El Espejo,positivo
+9562677,884130643,Granier,positivo
+8552432,862718522,Granier,positivo
+4473830,876079300,Granier,negativo
+7032632,892664066,Granier,positivo
+12357368,886703001,Granier,positivo
+11903898,817768563,Granier,negativo
+8856373,841132888,Granier,negativo
+9586379,889179127,Granier,negativo
+6453086,831615005,Granier,negativo
+3952765,834022959,Granier,positivo
+4787803,867485285,Granier Madrid,negativo
+12799378,728958775,Granier Panaderias Cafeteria,positivo
+8606379,872161229,Granja Blanca,negativo
+12896141,888681468,Granola,positivo
+21246549,870919534,Green Coffees Store,positivo
+8813672,871674124,Grinding Coffee,negativo
+13795246,891518341,GUILTY - Cookie Shop (Chamberi),positivo
+12903253,839041280,Ham on Market,neutro
+10784793,831786978,The Handyman Tavern,negativo
+5870249,890896018,HanSo Cafe,neutro
+4759323,887363996,Harina - Fuencarral,positivo
+19082179,854881952,Heladeria Artesanal Italiana Porto Bello - Madrid,positivo
+13904813,832222040,Hola coffee,positivo
+8375219,787786404,Home Bakery,positivo
+3963383,886197766,Hontanares,positivo
+11979072,875202612,Horno La Gloria,negativo
+4326705,846147025,Horno San Antonio,positivo
+4471495,885282657,Horno Santa Maria Madrid,negativo
+16726205,751563554,Ice & Dreams,positivo
+3180353,892908929,ICIAR,positivo
+8560097,741035683,Ie Sanna,positivo
+13958584,748445588,Il Bosco dei Gelati,positivo
+12952094,737343155,InCaffeine,positivo
+13977396,877781565,Isabel Maestre,positivo
+6584253,748591520,Jaleo,negativo
+17815288,699287206,Jamaica,positivo
+6845079,894024934,JARDIN SALVADOR BACHILLER,negativo
+4071969,881771808,Javier Martin Croquetas & Cafe,negativo
+5539039,871249420,J&J Books and Coffee,positivo
+19974960,891617980,Josepan,positivo
+17322521,854473787,Juan Valdez.Cafe,positivo
+19121657,823797678,Juicy Avenue Castellana,positivo
+13423903,698823635,Juicy Avenue Hortaleza,negativo
+15740623,776119678,Juicy Avenue Moraleja Green,positivo
+20865752,892087916,Kaldi Cafe,positivo
+23704707,840646989,KALITATEA,positivo
+4559511,881563210,Kalua Helado Artesanal,positivo
+10305224,853928652,Kebabihs donner kebab,negativo
+12814632,882707792,Kibo,positivo
+11871958,792632450,La 28,positivo
+11957684,879191837,La 28,positivo
+10226705,864243641,La andaluza,positivo
+16735562,875302090,La barra dulce,positivo
+4756767,893774837,La Bicicleta Cafe,negativo
+3179712,892508167,La Botilleria,negativo
+7294441,886813963,La Cabra En El Tejado,positivo
+17346353,825860812,La Cachiterie,positivo
+17146486,819385174,La Cafetera de Vergara,positivo
+3682414,882787813,La Central de Callao,positivo
+3529280,748266247,La Ciudad Invisible,positivo
+4641739,889249250,La Cocina de mi Vecina,positivo
+21177212,777235633,La Despensa De Amparo,positivo
+8757907,889759147,La Dona,negativo
+15061295,882142664,La Especial,negativo
+23242282,892865054,La Floreria,positivo
+4025675,849548277,La Fuentona,positivo
+10724083,748730643,La Garriga,positivo
+10377924,884830234,La General,negativo
+12867463,882848015,La Hermosita - Hermosilla,positivo
+23859659,883146067,La Hermosita Clara Del Rey,positivo
+23946968,892580071,La Hermosita Valdebebas,positivo
+12231804,879953544,La Huerta de Almeria,positivo
+5602455,844067835,La Libre Cafe,negativo
+4474527,743039787,La Madrilena,positivo
+23892858,827531908,La Magdalena De Proust,positivo
+9857431,890137574,La Malaje,positivo
+2071743,892851105,La Mallorquina,positivo
+19219857,892358347,La Mallorquina,positivo
+11920256,724173626,La Manon,positivo
+10735619,880176177,La Manon Boulangerie & Bistro,negativo
+8378634,851743612,La Maravilla,positivo
+7291052,883076888,La Marina,positivo
+5609181,887427309,La Marquesita,positivo
+7605123,888773504,La Mejor Tarta de Chocolate Del Mundo,negativo
+4600249,865952755,LA MEKA DE LA BAGUETTE,negativo
+9769006,890690398,La Merendona,negativo
+8003602,880671949,La Miguina,negativo
+3983373,756932948,La MiMe,negativo
+6480275,862175817,La Nueva Martina,negativo
+15081590,879214911,la Otra bar,neutro
+23694300,889069435,La Panera Rosa Calle Mayor,negativo
+23694289,877855992,La Panera Rosa Manuel Becerra,positivo
+13978406,891328689,La Panera Rosa Mesoneros Romanos,positivo
+13510711,869008524,La Panotheca,neutro
+7260801,844139061,La Pasteleria Del Duque,negativo
+7284298,880618514,La Pausa,positivo
+697447,894009990,La Pecera del Circulo,positivo
+13977453,891200929,La Quinta Del Sordo,positivo
+12167729,881558416,La Rollerie,negativo
+5869927,886020357,La Rollerie- Calle Guzman el Bueno,negativo
+19909999,893406753,La Rollerie La Terrasse,neutro
+20009194,890907891,La Taberna de al Lado,positivo
+13984180,724119854,La Torta en Chamberi,positivo
+14109221,638572488,La Toscana Cafeteria Panaderias,positivo
+9802625,757664690,La Vie en Doux,negativo
+12895772,820027539,Lambar,positivo
+12953062,892669394,LAP Bar Cafe,positivo
+23954041,872671697,LARTISAN Bar & Restaurante Malasana,positivo
+7127447,889317791,Las Farolas de la Calle Mayor,positivo
+12883084,836126829,Le Bec-Fin Madrid,positivo
+7818328,865617142,Le Pain Quotidien,neutro
+3222782,883594085,Le Pain Quotidien,positivo
+19366331,836623644,Le Pain Quotidien,negativo
+22879594,887079096,Le Praline,positivo
+15843570,783963484,Levadura Madre,negativo
+19351615,840051889,Levadura Madre,positivo
+14791167,782968484,Levadura Madre,positivo
+4883968,891269375,Levadura Madre,positivo
+14793142,838795270,Levadura Madre,neutro
+14109279,825653711,Libum,negativo
+7351956,891131434,Little Big Cafe,negativo
+13505560,889515936,Livanda,negativo
+3177915,821685038,Living in London,negativo
+5794902,817409868,Lizarran Bar,positivo
+17748180,790458101,Loco Polo,positivo
+12354190,746075030,Loliam Dulce Natural,positivo
+3699555,893323519,Lolina Vintage Cafe,negativo
+3611023,859526680,Lombay,positivo
+12321296,614431735,Los Dulces de Jessy,positivo
+7624339,722995034,Los Gauchos,positivo
+5796251,894046231,Los Nuevos Alpes,positivo
+10021151,873780760,Los Nuevos Alpes 2,positivo
+4274007,826903320,Los Pinchitos,positivo
+8107446,740038315,Lots Coffee House,positivo
+14783562,886899366,Luis Bar,positivo
+12374306,833435445,Maceta Cafe,positivo
+7283936,352210096,Machaskka,positivo
+10798525,891418264,Madrid 1883 churreria - chocolateria,negativo
+7894993,891556610,Madrid Delicia,positivo
+1637684,880379793,Maestro Churrero,positivo
+12861836,745450116,Maestro Food & more,negativo
+17811500,885492174,Mafrens Healthy Food,positivo
+19428828,783234687,Maison Raoul,positivo
+17393174,843667247,Makis Specialty Coffee Shop,positivo
+5017933,887574245,Mallorca Pasteleria,positivo
+5017971,874402135,Mallorca Pasteleria,negativo
+5017940,880721834,Mallorca Pasteleria,positivo
+5017954,814723317,Mallorca Pasteleria,negativo
+5017950,882878319,Mallorca Pasteleria,positivo
+5017961,888329557,Mallorca Pasteleria,negativo
+15211020,889371643,Mama Elba Heladeria,positivo
+12932539,751730751,Mama Framboise,positivo
+17479648,747764642,Mama Framboise Hermosilla,positivo
+11543456,831062833,Mamma Cookie,negativo
+13361005,893339300,Mamua Cafe Bar. Specialty coffee,positivo
+6962277,892428708,Manolo Bakes,positivo
+13384868,893337380,Manolo Bakes,negativo
+16407537,875695142,Manolo Bakes,positivo
+20258831,833304938,Manolo Bakes,positivo
+17433348,814285369,Manolo Bakes,negativo
+17548000,850771878,Manolo Bakes,positivo
+20344246,885942702,Manolo Bakes,positivo
+13986082,837580069,Mariacastana,negativo
+13189166,875348539,Market Cafe,positivo
+10682924,890640967,Market Cafe,negativo
+23216495,834071722,Masa Mamma,positivo
+13824355,669494847,Masters Specialty coffee,positivo
+6404685,890873599,Matilda,positivo
+19792491,881017160,Mazal Bagels & Cafe,positivo
+3809181,855635046,McDonald's,neutro
+4412636,742411788,Metro Coffee,positivo
+13530648,859275685,Miau,positivo
+9987950,820762739,Miga Bakery,negativo
+13832276,885174545,Miga Bakery,positivo
+8695897,893669573,Miga Bakery,negativo
+23265850,785207108,Miga Bakery Glorieta Pintor Sorrolla,negativo
+20295716,767806840,Millennials Cafe,positivo
+1545792,892604159,Mimi's Creperia,positivo
+13835012,880917748,Mision Cafe,negativo
+8112496,880847449,Mistura Ice Cream,negativo
+4597074,893436257,Mistura Ice Cream,neutro
+10721525,869384536,Mistura Ice Cream,positivo
+17634707,887406653,Mistura Ice Cream,positivo
+17630770,889419971,Mistura Ice Cream,positivo
+6563760,782120558,Mocca Cafe,positivo
+10756193,685914873,Moliendo Cafe,negativo
+7705128,894008925,Monkee Koffee,positivo
+7316046,412064010,Monpassa,positivo
+8651395,891545291,Motteau,positivo
+17370367,875554096,Mr Carrot Cake,negativo
+3734444,893366495,Mur Cafe,positivo
+2403630,893997477,Murillo Cafe - Restaurante,positivo
+4149980,892305583,Nanai,negativo
+8686760,841602859,NatasBelem,neutro
+4560366,888511662,Navelgas,negativo
+5609011,863660640,Nespresso,negativo
+14930230,891198040,Ninnetta,negativo
+8306657,863671780,Noma Food&Bar,positivo
+20382476,893051316,Nomade cafe,positivo
+21315481,888490367,Nommad Cafe,positivo
+21241202,782231586,Novarinos Pizza & Caffe,positivo
+10954530,856494261,Nuestro Secreto,positivo
+14283257,888976369,nutnut,positivo
+13426003,863367541,Obrador San Francisco,negativo
+3732685,726864121,Oita Cafe,positivo
+20140622,832133289,Olsen,positivo
+14921320,880463898,Orio,negativo
+7216323,843261281,Oroxata - Artesanos de la Horchata en tu fabrica de siempre,negativo
+10528891,886657581,Pan Adore,negativo
+8365233,878363820,Pan Feliz,positivo
+2477660,887111115,Panaderia Museo Del Pan Gallego,negativo
+15536004,894212116,Panaria,positivo
+9790592,890139857,Panaria,positivo
+8760427,873029461,Panaria,positivo
+9790847,889750413,Panaria,negativo
+13915031,860704686,Panaria,positivo
+21157006,839863817,Panaria,positivo
+9997534,887163321,Panaria,positivo
+10497594,891725531,Panaria,positivo
+10513607,889829878,Panaria,neutro
+10497239,680122348,Panaria,negativo
+21152901,774833581,Panaria,negativo
+9788365,743865797,Panaria,negativo
+10856937,802108373,Panaria,negativo
+10497172,788671313,Panaria Capitan Haya,positivo
+10497235,871456671,Panaria Santa Engracia 45,positivo
+11913600,876326405,Pancomido Cafe,positivo
+13074035,882059287,Pan.Delirio,negativo
+10043293,809541792,Pandepi,positivo
+2145736,876068553,Panela & Co,neutro
+14768421,893752903,Panem,positivo
+18976810,844515648,Panic Bakery,positivo
+7146181,879198052,Panishop,positivo
+12073113,846319113,Panishop Monforte,neutro
+14005527,880902402,Panisimo,negativo
+8553219,878829829,Panisimo,negativo
+13944183,751755535,Pannus,positivo
+12180582,780393899,Pannuschueca,negativo
+12143133,888643388,Panod,negativo
+15355288,889302380,Pans & Company,positivo
+8394610,866809735,Pans & Company,positivo
+991810,887918515,Pans y Company,positivo
+19888516,887341509,Panther Juice and Sandwich Market,positivo
+5614265,888342455,Pasteleria America 2,negativo
+6734915,877288499,Pasteleria America III,positivo
+8854166,885782142,Pasteleria Ascaso,positivo
+14060649,844379951,Pasteleria Bokoko,positivo
+12927361,871072406,Pasteleria Cafeteria Ipanema,positivo
+13119421,890765000,Pasteleria Cala-Millor,negativo
+2215656,881771768,Pasteleria Carmine,positivo
+17740763,746334804,Pasteleria Confiteria La Genovesa,positivo
+6873845,780541005,Pasteleria Diadema,positivo
+16693003,867684014,Pasteleria Evelia,positivo
+4150031,859886443,Pasteleria Gomez,positivo
+15813603,890842312,Pasteleria Horno de Pan Segura,negativo
+6594263,883597709,Pasteleria la Oriental,positivo
+4641744,871963236,Pasteleria lazcano,positivo
+7345216,788819247,Pasteleria Luzon,positivo
+7258807,824735120,Pasteleria Lyon,negativo
+990998,894251686,Pasteleria Mallorca,negativo
+5017957,878373184,Pasteleria Mallorca,negativo
+12196595,673887286,Pasteleria Mallorca,negativo
+12321418,737877816,Pasteleria Marotte,positivo
+3832704,875963014,Pasteleria Mayte,negativo
+2719790,884566809,Pasteleria Nunos,positivo
+8731631,827749066,Pasteleria Pareli,positivo
+9467060,874686860,Pasteleria Pareli,positivo
+12706532,891244875,Pasteleria Quequen,positivo
+13568899,783795758,Pasteleria Saul,positivo
+16676042,871092043,Pasteleria Sham,negativo
+5866410,789411501,Pasteleria Venecia,negativo
+4757447,822164261,Patio Baena,positivo
+15215140,874474986,Pau's Blissful Bakery,positivo
+3749107,892673984,Pepe Botella,positivo
+8105679,893371181,Periplo Cafe,positivo
+15780098,870787042,Petit Appetit,positivo
+23651536,888499697,Petra Coffee & Bar,positivo
+19911463,887417914,Picholeiros40,positivo
+25440380,887007075,Pignic Iberico,positivo
+9458120,739474464,Pink Planet,positivo
+12877222,890087747,Plantate Cafe,positivo
+10546880,726062751,Platea Cafe & Bar,positivo
+12400540,889903353,Plenti,positivo
+4134072,815314880,Pomme sucre,positivo
+3546569,889113710,Priorite Art Coffee Shop,negativo
+10286539,893125403,Pum Pum Cafe,positivo
+21268078,847152150,Punk Kitchen,positivo
+4474519,714830349,Quadra Panis,positivo
+13162908,878016852,Raw Coco Green Bar,positivo
+12867096,879824873,Rebel Cafe,neutro
+14157379,892540370,Religion Speciality Coffee,positivo
+4346446,810424674,Restaurant Nice,positivo
+12115648,814874920,Restaurante A Todas Horas,negativo
+5795078,843610780,Restaurante Cafeteria Epoca,negativo
+7332835,880914268,Restaurante Dixie,negativo
+20957319,891128655,Restaurante La Fuente,negativo
+10753606,881687989,Restaurante Santa Teresa Shop Aravaca,negativo
+11926425,863394128,Restaurante Tonteria,positivo
+6871895,890025637,Retrogusto,positivo
+12911984,740782705,Ricci's Cakes,positivo
+2362725,869597888,"Rick""s",negativo
+8801371,874577032,Ritual Fruit,positivo
+2092799,879371060,Rocablanca,positivo
+990760,890062533,Rocafria,positivo
+17392023,814718883,Rocket by Ollywood,negativo
+4698913,892248328,Rodilla,negativo
+4552295,890473448,Rodilla,negativo
+5776260,884301873,Rodilla,positivo
+17759819,882249384,Rodilla,positivo
+990762,783614310,Rodilla,positivo
+17760187,851569290,Rodilla,positivo
+5487685,818304794,Rodilla,negativo
+990764,834009519,Rodilla,positivo
+17760240,772579526,Rodilla,positivo
+17810832,887575705,Rodilla,positivo
+17759730,888402411,Rodilla,positivo
+18716647,887302428,Rodilla,positivo
+8661505,825637674,Rodilla,negativo
+17815215,709662425,Rodilla,positivo
+17762428,837600990,Rodilla,positivo
+17762456,825288500,Rodilla,positivo
+17815241,757916420,Rodilla,positivo
+17759433,757520833,Rodilla,positivo
+17815199,741146005,Rodilla,positivo
+17762445,718774125,Rodilla,positivo
+17762425,698964369,Rodilla,positivo
+5487199,838976008,Rodilla,negativo
+3773619,847136981,Rodilla,negativo
+18154494,892290005,Rodilla,positivo
+1951316,890339289,Rodilla,negativo
+17759759,749907233,Rodilla,positivo
+17759723,828071819,Rodilla,positivo
+17760237,722876632,Rodilla,positivo
+12652243,872067444,Rodilla,positivo
+17848557,782345482,Rodilla,positivo
+17759833,816334463,Rodilla,negativo
+4698906,840875916,Rodilla,positivo
+17762650,887582338,Rodilla,negativo
+19889967,787047634,Rodilla,neutro
+17815219,848513870,Rodilla,neutro
+17815186,759161941,Rodilla,positivo
+17762516,878873889,Rodilla,positivo
+17759573,868007039,Rodilla,positivo
+17762568,757604996,Rodilla,neutro
+17762652,802185101,Rodilla,negativo
+17759747,829718791,Rodilla,negativo
+17759698,886590744,Rodilla,positivo
+17759432,888258017,Rodilla,negativo
+17815207,890420318,Rodilla,positivo
+17760267,888460894,Rodilla,negativo
+17810852,884528822,Rodilla,negativo
+18716636,887070252,Rodilla,negativo
+19728329,886774939,Rollie Ice&Hot,positivo
+15118223,872027899,ROOTS Lamarca,positivo
+19331385,728611361,Roraima Avenue,positivo
+10219697,885629605,Ruda Cafe,positivo
+19410825,753593305,Salaberry Terrace,positivo
+17701655,787335763,Salad Var,positivo
+3912074,831772390,Salon de te Al Yabal,positivo
+7778434,874879978,Salon des Fleurs,positivo
+10462079,888662802,Sana Locura,positivo
+10102967,894061416,Santa Eulalia Boulangerie,positivo
+12347693,893430541,Santa Gloria,positivo
+8448710,752824449,Santa Gloria,neutro
+12151638,830802987,Santa Kafeina,positivo
+12963037,854910899,Santa Teresa,positivo
+15577617,820889965,Santa Teresa Shop Paseo de la Habana,positivo
+12879301,878885338,Santagloria,positivo
+12882470,887075866,Santagloria,positivo
+12843458,878123096,Santagloria,negativo
+20174812,892045290,Santagloria,positivo
+12879286,820333289,Santagloria,negativo
+12879275,726366962,Santagloria,neutro
+12996273,736572617,Santagloria Avenida de America,negativo
+12636099,784530883,Santagloria Felix Boix,negativo
+19468329,888721150,Scarlett,positivo
+12339651,885042687,Seara Cafe,positivo
+15214580,870086101,Sicilioso,positivo
+8571120,833183774,Sidreria Asgaya - Santa Eugenia,positivo
+12174917,874026286,Silma,negativo
+4053961,853828918,Solaire,positivo
+14800010,710213119,SOMA Healthy Cafe,negativo
+4590442,887206142,Soto Verde,negativo
+10162965,840764533,Sottgodis,negativo
+12891707,877184776,Spelta,positivo
+7366115,893446462,Starbucks Alcala 21,positivo
+9857783,880352592,Starbucks Arenal 14,positivo
+12420035,722027097,Starbucks CC Dreams,positivo
+12420134,765660527,Starbucks CC Islazul,neutro
+12444882,879405324,Starbucks CC La Gavia,positivo
+12420136,872202666,Starbucks CC Plenilunio,positivo
+12420140,830468951,Starbucks Conde de Penalver,negativo
+12550909,674585303,Starbucks ECI Mendez Alvaro,negativo
+12420640,781010992,Starbucks ECI Preciados,positivo
+12420659,866587882,Starbucks Fuencarral 43,positivo
+12550826,774714654,Starbucks Genova 27,positivo
+7733525,881420696,Starbucks Gran Via 30,positivo
+12420718,855742321,Starbucks Gran Via 58,positivo
+12420724,888771269,Starbucks Juan Bravo,negativo
+12550822,787481496,Starbucks Orense 6,positivo
+13335712,679302375,Starbucks Orense 79,negativo
+12420761,824889855,Starbucks Padre Damian,negativo
+6690403,877049891,Starbucks Palace,positivo
+8094153,839791218,Starbucks Plaza de Espana,positivo
+13129743,859280287,Starbucks Plaza Rio 2,negativo
+1105478,892268443,Starbucks Princesa 40,positivo
+6484695,759483257,Starbucks Principe Pio,positivo
+13129734,757769190,Starbucks Quevedo,positivo
+12420799,873040623,Starbucks Reina Sofia,positivo
+12420012,881148872,Starbucks Reserve Beatriz,positivo
+13133121,816083732,Starbucks Room Mate Oscar,positivo
+12420800,780663921,Starbucks San Miguel,positivo
+12691976,868948937,"Starbucks Serrano, 100",negativo
+17413130,830530862,Starbucks Teatro Real,positivo
+12421052,877631752,Starbucks Velazquez,positivo
+7805952,885064206,Sucre Salon De Te,neutro
+19328180,883485748,Sweet Studio,neutro
+7260058,813580404,Sweet Suomi,positivo
+9765841,758456425,Sweets & Coffee,negativo
+1775780,892358587,Taberna Alhambra,positivo
+8141867,892787696,Taberna Casa Maravillas,positivo
+8793725,889202144,Taberna Eulogio,negativo
+4375596,890849016,Tapas Montera,negativo
+6440690,824135906,Tartalia,negativo
+10451849,855215761,Tata Gateau,positivo
+7223507,640270340,Teatro Bodevil,negativo
+12977779,542429518,Tejeteria KnitCafe,positivo
+13322000,859190397,Tim Hortons,neutro
+4138106,891834830,Tineo,negativo
+4946211,891453656,The Toast Cafe,positivo
+2408938,888833891,Toma Cafe,negativo
+12897322,884674694,Toma Cafe Olavide,positivo
+10805135,784830459,Toppings and Salads,negativo
+10813845,836533199,Toppings and Salads,positivo
+12524483,866254784,Tradicionarius,neutro
+12269288,787934651,Tradicionarius,neutro
+11961055,776095638,Tradicionarius,positivo
+17422913,732826876,Tradition Sucree,positivo
+23388302,889166731,UNFLTRD Coffee,positivo
+8659482,720215399,Urban Coffee,negativo
+13224660,886427025,Urbano Specialty Coffee,negativo
+4022675,861641214,Uvepan,positivo
+7381081,829505951,Vacaciones Cocktail Bar,positivo
+1716283,808406682,Vailima,positivo
+5491097,886056622,Vait,negativo
+6211467,479490316,Valdueza Pasteleria,negativo
+8786723,876663309,Valentina,negativo
+23148740,882398141,Vanille Bakery Lab,positivo
+20884291,888715067,VegAmazing Doughnuts,positivo
+3820808,847690201,Verdoy,positivo
+13150721,835008157,Vert&Frais,positivo
+3730679,888970758,Viena Azul,positivo
+5486633,824037136,Viena Azul,negativo
+13901238,888970325,Viena Azul,negativo
+3526672,887633871,Viena Capellanes,negativo
+8870666,891026790,Viena Capellanes,positivo
+10387925,870997652,Viena Capellanes,positivo
+10467506,863010148,Viena Capellanes,positivo
+5487592,744194377,Viena Capellanes,positivo
+12597239,881759218,Viena Capellanes,positivo
+13137628,872092717,Viena Capellanes,negativo
+12621857,863296301,Viena Capellanes,positivo
+12597215,887572955,Viena Capellanes,positivo
+12621987,877785022,Viena Capellanes,positivo
+12621856,792197568,Viena Capellanes,negativo
+12621862,874112748,Viena Capellanes,negativo
+2715758,886486650,VIPS Ribera Curtidores,negativo
+8700211,851741904,VIPS Serrano,neutro
+12877940,864978835,Wanderlust,positivo
+15211040,886421189,WAYCUP Specialty Coffee,positivo
+18921176,745229531,WAYCUP Specialty Coffee,positivo
+19738400,750394621,WAYCUP Specialty Coffee,positivo
+19468276,781860041,Werfresh Healthy Food,positivo
+3983693,870145684,Wicked Sweet Madrid,positivo
+20295566,890329097,y Lucientes,neutro
+17340009,894241994,Zenith Brunch & Cocktails - Valverde,positivo
+12624979,828784807,Zero Point Coffee Shop,positivo
+16849503,853061233,Zuccaru,positivo
