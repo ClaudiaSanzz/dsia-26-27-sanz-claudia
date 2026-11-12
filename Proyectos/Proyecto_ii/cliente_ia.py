@@ -3,108 +3,129 @@ import json
 import os
 import pandas as pd
 
-from google import genai
+from openai import OpenAI
 from dotenv import load_dotenv
 
 
-# 1. Cargamos la clave API desde el archivo .env
+# 1. Cargamos las variables del archivo .env
 load_dotenv()
 
 
 # 2. Función para analizar una reseña
 def analizar_resena(texto, modo="mock"):
 
-    # Modo de prueba: no utilizamos la API
+    # Modo de prueba: no llamamos a NVIDIA
     if modo == "mock":
         return "Análisis simulado de la reseña"
 
-    # Modo real: utilizamos la API de Gemini
-    elif modo == "real":
-
-        # Conectamos con Gemini utilizando nuestra clave
-        cliente = genai.Client(
-            api_key=os.getenv("GEMINI_API_KEY")
-        )
-
-        # Le indicamos a la IA qué queremos analizar
-        prompt = (
-            "Analiza esta reseña de una cafetería. "
-            "Identifica las opiniones sobre ruido, ambiente, "
-            "bebidas, comida, precio, comodidad y atención. "
-            "Para cada característica indica positivo, negativo o neutro. "
-            "Si no aparece información, indica no_mencionado. "
-            "No inventes información. "
-            "Responde únicamente en formato JSON, sin explicaciones. "
-            "Utiliza estas claves: ruido, ambiente, bebidas, comida, "
-            "precio, comodidad, atencion.\n\n"
-            + texto
-        )
-
-        # Enviamos la reseña a Gemini
-        respuesta = cliente.models.generate_content(
-            model=os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite"),
-            contents=prompt
-        )
-
-        return respuesta.text
-
-    else:
+    # Comprobamos que el modo sea correcto
+    if modo != "real":
         raise ValueError("El modo debe ser mock o real")
 
+    # 3. Obtenemos la clave de NVIDIA
+    clave = os.getenv("NVIDIA_API_KEY")
 
-# 3. Probamos con reseñas de varias cafeterías
+    if not clave:
+        raise ValueError("Falta NVIDIA_API_KEY en el archivo .env")
+
+    # 4. Conectamos con NVIDIA
+    cliente = OpenAI(
+        base_url="https://integrate.api.nvidia.com/v1",
+        api_key=clave
+    )
+
+    # 5. Indicamos qué queremos analizar
+    prompt = (
+        "Analiza esta reseña de una cafetería. "
+        "Identifica las opiniones sobre ruido, ambiente, "
+        "bebidas, comida, precio, comodidad y atención. "
+        "Para cada característica indica positivo, negativo, "
+        "neutro o no_mencionado. "
+        "Si no aparece información, indica no_mencionado. "
+        "No inventes información. "
+        "Responde únicamente en formato JSON, sin explicaciones. "
+        "Utiliza exactamente estas claves: ruido, ambiente, bebidas, "
+        "comida, precio, comodidad, atencion.\n\n"
+        + str(texto)
+    )
+
+    # 6. Enviamos la reseña al modelo NVIDIA Nemotron
+    respuesta = cliente.chat.completions.create(
+        model=os.getenv(
+            "NVIDIA_MODEL",
+            "nvidia/nemotron-3.5-super-vl-120b-a12b"
+        ),
+        messages=[
+            {"role": "user", "content": prompt}
+        ],
+        temperature=1,
+        top_p=0.95,
+        max_tokens=1000,
+        stream=False,
+        extra_body={
+            "chat_template_kwargs": {
+                "enable_thinking": False
+            }
+        }
+    )
+
+    # 7. Recuperamos el análisis
+    contenido = respuesta.choices[0].message.content
+
+    if not contenido:
+        raise ValueError("NVIDIA no ha devuelto contenido")
+
+    contenido = contenido.strip()
+
+    # Eliminamos las marcas de Markdown si aparecen
+    if contenido.startswith("```"):
+        contenido = contenido.replace("```json", "")
+        contenido = contenido.replace("```", "").strip()
+
+    # Convertimos el JSON en un diccionario
+    analisis = json.loads(contenido)
+
+    # 8. Comprobamos las etiquetas devueltas
+    caracteristicas = [
+        "ruido", "ambiente", "bebidas", "comida",
+        "precio", "comodidad", "atencion"
+    ]
+
+    resultado = {}
+
+    for caracteristica in caracteristicas:
+
+        valor = analisis.get(caracteristica)
+
+        if valor == "neutral":
+            valor = "neutro"
+
+        if valor not in [
+            "positivo", "negativo", "neutro", "no_mencionado"
+        ]:
+            raise ValueError(
+                "Valor no válido para " + caracteristica
+            )
+
+        resultado[caracteristica] = valor
+
+    return json.dumps(resultado, ensure_ascii=False)
+
+
+# 9. Probamos con una reseña de nuestro dataset
 if __name__ == "__main__":
 
-    # Cargamos las reseñas
     df = pd.read_csv("cafeterias_limpias.csv")
 
-    # Eliminamos las reseñas sin texto
-    df = df.dropna(subset=["texto_review"])
+    resena = df.dropna(subset=["texto_review"]).iloc[0]
 
-    # Seleccionamos 5 cafeterías diferentes
-    cafeterias = df["itemId"].drop_duplicates().head(2)
+    print("\nCAFETERÍA:", resena["name"])
+    print("\nRESEÑA:", resena["texto_review"])
 
-    # Nos quedamos con las reseñas de esas cafeterías
-    df = df[df["itemId"].isin(cafeterias)]
+    respuesta = analizar_resena(
+        resena["texto_review"],
+        modo=os.getenv("MODO_IA", "mock")
+    )
 
-    # Seleccionamos 5 reseñas por cafetería
-    resenas = df.groupby("itemId").head(3)
-
-    resultados = []
-
-    # 4. Analizamos cada reseña
-    for _, fila in resenas.iterrows():
-
-        print("\nCAFETERÍA:", fila["name"])
-        print("RESEÑA:", fila["texto_review"])
-
-        # Pedimos el análisis a Gemini
-        respuesta = analizar_resena(fila["texto_review"], modo="real")
-
-        # Convertimos el JSON en un diccionario
-        analisis = json.loads(respuesta)
-
-        # Unificamos las etiquetas
-        for clave in analisis:
-            if analisis[clave] == "neutral":
-                analisis[clave] = "neutro"
-
-        # Añadimos los datos de la cafetería y la reseña
-        analisis["itemId"] = fila["itemId"]
-        analisis["reviewId"] = fila["reviewId"]
-        analisis["name"] = fila["name"]
-
-        # Guardamos el resultado
-        resultados.append(analisis)
-
-        print("\nANÁLISIS:")
-        print(analisis)
-
-    # 5. Guardamos todos los resultados
-    df_resultados = pd.DataFrame(resultados)
-
-    df_resultados.to_csv("analisis_resenas.csv", index=False)
-
-    print("\nAnálisis guardados en analisis_resenas.csv")
-    print("Reseñas analizadas:", len(df_resultados))
-    print("Cafeterías analizadas:", df_resultados["itemId"].nunique())
+    print("\nANÁLISIS:")
+    print(respuesta)

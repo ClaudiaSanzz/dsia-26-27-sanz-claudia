@@ -1,6 +1,6 @@
 itemId,reviewId,name,sentimiento,ruido,ambiente,bebidas,comida,precio,comodidad,atencion
 4763398,890166072,Abonavida,positivo,no_mencionado,no_mencionado,positivo,neutro,no_mencionado,no_mencionado,positivo
-13369492,890311953,Acid Cafe,negativo,no_mencionado,negativo,negativo,no_mencionado,negativo,no_mencionado,negativo
-5992666,883140694,Acquolina,positivo,no_mencionado,positivo,positivo,positivo,no_mencionado,positivo,no_mencionado
+13369492,890311953,Acid Cafe,negativo,no_mencionado,negativo,negativo,no_mencionado,no_mencionado,negativo,negativo
+5992666,883140694,Acquolina,positivo,no_mencionado,positivo,positivo,positivo,no_mencionado,no_mencionado,no_mencionado
 4086773,826664757,Adolfo Dominguez,negativo,no_mencionado,no_mencionado,no_mencionado,no_mencionado,no_mencionado,no_mencionado,negativo
-15575884,889489164,Adorado,positivo,no_mencionado,positivo,positivo,negativo,negativo,negativo,negativo
+15575884,889489164,Adorado,positivo,no_mencionado,negativo,neutro,negativo,negativo,negativo,negativo

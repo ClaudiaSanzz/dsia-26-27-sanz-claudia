@@ -1,3 +1,6 @@
 itemId,name,resenas_analizadas,ruido_positivo,ruido_negativo,ambiente_positivo,ambiente_negativo,bebidas_positivo,bebidas_negativo,comida_positivo,comida_negativo,precio_positivo,precio_negativo,comodidad_positivo,comodidad_negativo,atencion_positivo,atencion_negativo
-4763398,Abonavida,3,0,0,1,0,2,0,2,0,0,2,0,0,3,0
-13369492,Acid Cafe,3,0,0,0,2,1,2,1,0,0,2,0,1,0,2
+4086773,Adolfo Dominguez,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+4763398,Abonavida,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0
+5992666,Acquolina,1,0,0,1,0,1,0,1,0,0,0,0,0,0,0
+13369492,Acid Cafe,1,0,0,0,1,0,1,0,0,0,0,0,1,0,1
+15575884,Adorado,1,0,0,0,1,0,0,0,1,0,1,0,1,0,1
