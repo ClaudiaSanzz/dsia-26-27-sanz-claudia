@@ -59,7 +59,8 @@ def test_ranking_order(monkeypatch):
             "Café excelente",
             "Buenos desayunos",
             "Servicio amable"
-        ]
+        ],
+        "url_review": [f"https://example.com/review/{i}" for i in range(1, 11)]
     })
 
     # Simulamos el modelo de sentimientos
@@ -124,7 +125,11 @@ def test_rank_excludes_negative_reviews(monkeypatch):
         "texto_review": (
             ["Sitio tranquilo para estudiar"] * 5
             + ["Buen sitio para estudiar"] * 5
-        )
+        ),
+        "url_review": [
+        f"https://example.com/review/{i}"
+        for i in range(1, 11)
+        ]
     })
 
     class FakePredictor:

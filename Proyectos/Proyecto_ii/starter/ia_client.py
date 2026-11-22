@@ -1,3 +1,4 @@
+
 import json
 import os
 
@@ -29,8 +30,8 @@ class AIClient:
                 api_key=api_key
             )
 
-    def ask_nvidia(self, prompt):
-        # Enviamos una petición a NVIDIA
+    def ask_nvidia(self, prompt, json_response=True):
+        # Enviamos la petición a NVIDIA
         response = self.client.chat.completions.create(
             model=os.getenv(
                 "NVIDIA_MODEL",
@@ -39,7 +40,7 @@ class AIClient:
             messages=[
                 {"role": "user", "content": prompt}
             ],
-            temperature=1,
+            temperature=0.2,
             top_p=0.95,
             max_tokens=1000,
             stream=False,
@@ -55,9 +56,13 @@ class AIClient:
         if not content:
             raise ValueError("NVIDIA no ha devuelto contenido")
 
-        # Limpiamos posibles marcas de Markdown
         content = content.strip()
 
+        # Si queremos texto, lo devolvemos directamente
+        if not json_response:
+            return content
+
+        # Limpiamos posibles marcas Markdown del JSON
         if content.startswith("```"):
             content = content.replace("```json", "")
             content = content.replace("```", "").strip()
@@ -65,20 +70,18 @@ class AIClient:
         return json.loads(content)
 
     def analyze_review(self, text):
-        # Características que queremos analizar
+        # Características de las reseñas
         features = [
             "ruido", "ambiente", "bebidas", "comida",
             "precio", "comodidad", "atencion"
         ]
 
-        # Modo simulado
         if self.mode == "mock":
             return {
                 feature: "no_mencionado"
                 for feature in features
             }
 
-        # Analizamos la reseña con NVIDIA
         prompt = f"""
         Analiza esta reseña de una cafetería.
 
@@ -98,7 +101,7 @@ class AIClient:
 
         result = self.ask_nvidia(prompt)
 
-        # Comprobamos la respuesta
+        # Validamos la respuesta
         if not isinstance(result, dict):
             raise ValueError("NVIDIA debe devolver un diccionario")
 
@@ -117,7 +120,10 @@ class AIClient:
 
             result[feature] = value
 
-        return {feature: result[feature] for feature in features}
+        return {
+            feature: result[feature]
+            for feature in features
+        }
 
     def interpret_preferences(self, text):
         # Preferencias iniciales de Café Match
@@ -125,7 +131,6 @@ class AIClient:
             "quiet", "work", "wifi", "matcha", "brunch"
         ]
 
-        # Modo simulado con palabras clave
         if self.mode == "mock":
             text = text.lower()
 
@@ -142,7 +147,6 @@ class AIClient:
                 "brunch": "brunch" in text
             }
 
-        # NVIDIA interpreta la petición del usuario
         prompt = f"""
         Identifica qué busca el usuario en una cafetería.
 
@@ -168,7 +172,7 @@ class AIClient:
 
         result = self.ask_nvidia(prompt)
 
-        # Comprobamos que las preferencias sean válidas
+        # Validamos las preferencias
         if not isinstance(result, dict):
             raise ValueError("NVIDIA debe devolver un diccionario")
 
@@ -183,17 +187,65 @@ class AIClient:
             for preference in preferences
         }
 
+    def explain_recommendation(self, user_request, cafe_name, review):
+        # Explicación simulada
+        if self.mode == "mock":
+            return (
+                f"{cafe_name}: recomendación basada en una reseña "
+                "relacionada con tu búsqueda."
+            )
+
+        # Explicamos la recomendación con una reseña real
+        prompt = f"""
+        Eres el asistente de Café Match.
+
+        El usuario busca:
+        {user_request}
+
+        Cafetería:
+        {cafe_name}
+
+        Reseña real:
+        {review}
+
+        Explica brevemente por qué esta cafetería
+        podría encajar con lo que busca el usuario.
+
+        Reglas:
+        - Utiliza únicamente la información de la reseña.
+        - No inventes características.
+        - Si la reseña no confirma alguna preferencia,
+          indica que no tenemos información suficiente.
+        - No afirmes que una característica está disponible
+          solo porque el usuario la haya solicitado.
+        - Responde en español, con 2 o 3 frases.
+        """
+
+        return self.ask_nvidia(prompt, json_response=False)
+
 
 def main():
-    # Prueba sencilla del cliente
-    ai = AIClient(mode=os.getenv("MODO_IA", "mock"))
+    # Probamos las funcionalidades sin llamar a NVIDIA
+    ai = AIClient(mode="mock")
 
     text = "Quiero estudiar en un sitio tranquilo con wifi"
 
-    result = ai.interpret_preferences(text)
+    preferences = ai.interpret_preferences(text)
 
-    print("Petición:", text)
-    print("Preferencias:", result)
+    explanation = ai.explain_recommendation(
+        text,
+        "La Bicicleta Cafe",
+        "Un excelente espacio para tomar un café y estudiar"
+    )
+
+    print("\nPETICIÓN:")
+    print(text)
+
+    print("\nPREFERENCIAS:")
+    print(preferences)
+
+    print("\nEXPLICACIÓN:")
+    print(explanation)
 
 
 if __name__ == "__main__":

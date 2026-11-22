@@ -127,10 +127,9 @@ class CafeRecommender:
         return cafes.head(top_n)
 
     def recommend_from_text(self, profiles, search, ai, text, top_n=5):
-        # NVIDIA interpreta la petición
+        # Interpretamos las preferencias
         preferences = ai.interpret_preferences(text)
 
-        # Añadimos palabras relacionadas con las preferencias
         keywords = {
             "quiet": "tranquilo silencio",
             "work": "estudiar trabajar ordenador portátil",
@@ -139,13 +138,14 @@ class CafeRecommender:
             "brunch": "brunch"
         }
 
+        # Ampliamos la búsqueda con las preferencias
         query = text
 
         for preference, active in preferences.items():
             if active and preference in keywords:
                 query += " " + keywords[preference]
 
-        # Buscamos cafeterías en las reseñas
+        # Buscamos cafeterías relacionadas
         ranking = search.rank_cafes(query, top_n=100)
 
         if ranking.empty:
@@ -166,7 +166,12 @@ class CafeRecommender:
         cafes = self.calculate_base_score(cafes)
 
         # Combinamos relevancia y valoración
-        cafes["relevance"] = cafes["score"] / cafes["score"].max()
+        max_score = cafes["score"].max()
+
+        if max_score > 0:
+            cafes["relevance"] = cafes["score"] / max_score
+        else:
+            cafes["relevance"] = 0
 
         cafes["final_score"] = (
             cafes["relevance"] * 0.7
@@ -177,7 +182,32 @@ class CafeRecommender:
             "final_score", ascending=False
         )
 
-        return cafes.head(top_n), preferences
+        # Nos quedamos con las mejores cafeterías
+        cafes = cafes.head(top_n).copy()
+
+        # Generamos una explicación basada en una reseña real
+        explanations = []
+
+        for _, cafe in cafes.iterrows():
+            review = cafe.get("example_review", "")
+
+            if pd.isna(review):
+                review = ""
+
+            if not review:
+                explanation = "No tenemos una reseña disponible para explicar esta recomendación."
+            else:
+                explanation = ai.explain_recommendation(
+                    text,
+                    cafe["name"],
+                    review
+                )
+
+            explanations.append(explanation)
+
+        cafes["explanation"] = explanations
+
+        return cafes, preferences
 
 
 def main():
@@ -192,6 +222,7 @@ def main():
     if mode == "libre":
         text = input("¿Qué buscas en una cafetería? ")
 
+        # Cargamos las reseñas
         reviews = CafeLoader().load_csv(
             "data/cafeterias_limpias.csv"
         )
@@ -200,7 +231,7 @@ def main():
         ai = AIClient(mode=os.getenv("MODO_IA", "mock"))
 
         results, preferences = recommender.recommend_from_text(
-            profiles, search, ai, text, top_n=10
+            profiles, search, ai, text, top_n=1
         )
 
         print("\nPreferencias detectadas:")
@@ -208,17 +239,20 @@ def main():
 
         if results.empty:
             print("No encontramos cafeterías relacionadas.")
-        else:
-            columns = [
-                "name", "valoracion_media",
-                "total_reviews", "relevant_reviews",
-                "final_score"
-            ]
 
+        else:
             print("\nCAFETERÍAS RECOMENDADAS")
-            print(
-                results[columns].round(3).to_string(index=False)
-            )
+
+            for _, cafe in results.iterrows():
+                print(f"\n{cafe['name']}")
+                print(
+                    f"Valoración: {cafe['valoracion_media']:.2f}/5"
+                )
+                print(
+                    f"Puntuación: {cafe['final_score']:.3f}"
+                )
+                print(f"Explicación: {cafe['explanation']}")
+                print("-" * 50)
 
     else:
         if mode not in recommender.options:
@@ -244,6 +278,7 @@ def main():
 
         if results.empty:
             print("No hay cafeterías con información suficiente.")
+
         else:
             columns = [
                 "name", "valoracion_media", "num_resenas",

@@ -13,6 +13,9 @@ class FakeAI:
             "brunch": False
         }
 
+    def explain_recommendation(self, user_request, cafe_name, review):
+        return f"Explicación simulada para {cafe_name}"
+    
 
 class FakeSearch:
     def rank_cafes(self, query, top_n=100):
@@ -21,7 +24,11 @@ class FakeSearch:
             "name": ["Cafe A", "Cafe B"],
             "relevant_reviews": [3, 2],
             "total_reviews": [20, 15],
-            "score": [0.4, 0.2]
+            "score": [0.4, 0.2],
+            "example_review": [
+                "Sitio tranquilo para estudiar",
+                "Buen ambiente para trabajar"
+            ]
         })
 
 
@@ -46,6 +53,8 @@ def test_personalized_recommendations():
     assert results.iloc[0]["name"] == "Cafe A"
     assert preferences["quiet"] is True
     assert preferences["work"] is True
+    assert "explanation" in results.columns
+    assert results.iloc[0]["explanation"] == "Explicación simulada para Cafe A"
 
 
 def test_personalized_without_matches():

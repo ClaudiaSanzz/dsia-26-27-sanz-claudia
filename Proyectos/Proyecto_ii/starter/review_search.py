@@ -105,8 +105,12 @@ class ReviewSearch:
             name=("name", "first"),
             relevant_reviews=("reviewId", "count"),
             average_similarity=("similarity", "mean"),
-            best_similarity=("similarity", "max")
+            best_similarity=("similarity", "max"),
+            example_review=("texto_review", "first"),
+            example_review_id=("reviewId", "first"),
+            example_review_url=("url_review", "first")
         ).reset_index()
+
 
         # Añadimos las reseñas totales
         ranking["total_reviews"] = ranking["itemId"].map(
