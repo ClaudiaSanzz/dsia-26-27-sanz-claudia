@@ -1,0 +1,18 @@
+
+# Entorno y archivos temporales
+.venv/
+__pycache__/
+.pytest_cache/
+.env
+
+# Dataset completo
+data/*.csv
+
+# Permitimos subir la muestra
+!data/cafeterias_muestra.csv
+
+# Modelos entrenados
+models/*.joblib
+
+# Resultados generados
+outputs/*.csv
