@@ -145,7 +145,13 @@ En una de las pruebas, NVIDIA identificó correctamente las preferencias de tran
 
 En otra, generó una explicación de Federal Cafe a partir de una reseña real, distinguiendo entre las características mencionadas y la información no confirmada.
 
-La nueva versión de `CafePipeline` se ha ejecutado en modo `mock`. Su ejecución completa en modo `real` queda pendiente de una comprobación específica.
+También hemos comprobado el funcionamiento de la versión actual de `CafePipeline` en modo `real`, utilizando la API de NVIDIA.
+
+Se procesaron cinco reseñas correspondientes a cinco cafeterías, y las cinco peticiones devolvieron una respuesta HTTP 200. Los resultados se guardaron correctamente en `outputs/resultados_pipeline_real.csv`.
+
+Posteriormente, ejecutamos `starter.review_summary` para generar `outputs/resumen_opiniones.csv`, que resume las características analizadas por cafetería.
+
+Además, hemos probado el recomendador personalizado con NVIDIA real, comprobando que interpreta las preferencias del usuario y genera explicaciones basadas en reseñas recuperadas.
 
 ### Tests automáticos
 
