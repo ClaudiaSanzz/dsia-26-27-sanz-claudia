@@ -1,53 +1,75 @@
-# Café Match
 
-Sistema inteligente de recomendación de cafeterías en Madrid mediante Machine Learning e Inteligencia Artificial Generativa.
+# ☕ Café Match
+
+Sistema de recomendación de cafeterías de Madrid que combina **Machine Learning**, búsqueda de reseñas e **inteligencia artificial generativa**.
+
+Este proyecto constituye la base del **Proyecto III (Trabajo Final)** de DSIA.
 
 ## 1. Descripción del proyecto
 
-**Café Match** es un sistema de recomendación que ayuda a los usuarios a encontrar cafeterías de Madrid según sus necesidades y preferencias.
+**Café Match** ayuda a encontrar cafeterías de Madrid según las preferencias del usuario, utilizando opiniones reales en lugar de basarse únicamente en las valoraciones generales de los establecimientos.
 
-El proyecto combina tres tecnologías principales:
+El sistema combina tres tecnologías:
 
-- **Machine Learning:** clasificación del sentimiento de las reseñas mediante regresión logística.
+- **Machine Learning:** clasificación de sentimientos mediante regresión logística y TF-IDF.
 - **Búsqueda de información:** recuperación de reseñas relevantes utilizando TF-IDF y similitud coseno.
-- **Inteligencia Artificial Generativa:** integración con NVIDIA para interpretar preferencias y explicar recomendaciones utilizando reseñas reales.
-
-El objetivo es ofrecer recomendaciones personalizadas y justificadas, en lugar de basarse únicamente en las valoraciones generales de las cafeterías.
+- **Inteligencia Artificial Generativa:** integración con NVIDIA para interpretar preferencias y explicar recomendaciones a partir de reseñas reales.
 
 ### Modos de recomendación
 
-El sistema dispone de cinco opciones:
-
 | Modo | Descripción |
 |---|---|
-| **Focus** | Cafeterías para estudiar o trabajar, priorizando tranquilidad y comodidad. |
+| **Focus** | Cafeterías para estudiar o trabajar. |
 | **Social** | Cafeterías para conversar o quedar con amigos. |
-| **Trendy** | Cafeterías relacionadas con tendencias como el matcha o el brunch. |
+| **Trendy** | Cafeterías relacionadas con tendencias como matcha y brunch. |
 | **Surprise** | Descubrir cafeterías originales o menos conocidas. |
-| **Libre** | El usuario describe sus preferencias con sus propias palabras. |
+| **Libre** | El usuario escribe sus preferencias en lenguaje natural. |
 
-En el modo libre, el usuario puede introducir una petición como:
+Por ejemplo:
 
-> Quiero una cafetería tranquila para estudiar con mi portátil, que tenga wifi y buen matcha.
+> Quiero una cafetería tranquila para estudiar con mi portátil y tomar un buen café.
 
-NVIDIA interpreta las preferencias expresadas y el sistema busca reseñas relacionadas para generar un ranking de cafeterías.
+En el modo libre, NVIDIA interpreta las preferencias, el sistema recupera reseñas relacionadas y genera un ranking de cafeterías con explicaciones.
 
 ---
 
 ## 2. Dataset
 
-Se utiliza un dataset de **103.082 reseñas de 760 cafeterías de Madrid**.
+### Origen de los datos
+
+El proyecto utiliza el dataset **TripAdvisor Restaurant Reviews**, publicado en Zenodo.
+
+- **Autores:** Pablo Pérez-Núñez, Eva Blanco, Verónica Bolón-Canedo y Beatriz Remeseiro.
+- **Fuente:** https://zenodo.org/records/14622324
+- **DOI:** https://doi.org/10.5281/zenodo.14622324
+- **Versión:** 2.0.0.
+- **Licencia documentada:** Creative Commons Attribution 4.0 International (CC BY 4.0).
+- **Fecha de descarga:** 4 de octubre de 2026.
+
+Los datos originales contienen reseñas de restaurantes de distintas ciudades europeas.
+
+Para Café Match se utilizaron los archivos correspondientes a Madrid.
+
+Los archivos `items.pkl` y `reviews.pkl` se combinaron mediante `itemId`, relacionando las reseñas con los establecimientos.
+
+Posteriormente se aplicaron los procesos de limpieza desarrollados en el Proyecto I y se seleccionaron las cafeterías.
+
+### Datos utilizados
+
+El dataset completo contiene **103.082 reseñas de 760 cafeterías de Madrid**.
 
 Entre las columnas disponibles se encuentran:
 
-- `reviewId`: identificador de la reseña.
-- `itemId`: identificador de la cafetería.
-- `name`: nombre de la cafetería.
-- `texto_review`: contenido de la reseña.
-- `rating_review`: valoración de la reseña.
-- `rating_cafeteria`: valoración general del establecimiento.
-- `url_review`: enlace a la reseña original.
-- `url_cafeteria`: enlace del establecimiento.
+| Columna | Descripción |
+|---|---|
+| `reviewId` | Identificador de la reseña. |
+| `itemId` | Identificador de la cafetería. |
+| `name` | Nombre de la cafetería. |
+| `texto_review` | Texto de la reseña. |
+| `rating_review` | Valoración de la reseña. |
+| `rating_cafeteria` | Valoración general del establecimiento. |
+| `url_review` | Enlace a la reseña original. |
+| `url_cafeteria` | Enlace del establecimiento. |
 
 ### Dataset de muestra
 
@@ -55,27 +77,49 @@ Para evitar subir archivos demasiado grandes al repositorio, se incluye:
 
 `data/cafeterias_muestra.csv`
 
-Esta muestra contiene **300 reseñas (212 KB)**, distribuidas de forma equilibrada entre sentimientos positivos, negativos y neutros.
+Este archivo contiene **300 reseñas reales** seleccionadas para incluir ejemplos de:
+
+- Tranquilidad y ruido.
+- Estudiar o trabajar.
+- Ambiente social.
+- Reuniones con amigos.
+- Matcha y brunch.
+- Originalidad y lugares escondidos.
+
+La muestra se genera mediante `starter/create_sample.py`.
 
 El dataset completo se conserva localmente en:
 
 `data/cafeterias_limpias.csv`
 
-**Importante:** la muestra sirve para inspeccionar la estructura de los datos y realizar pruebas limitadas. No permite reproducir las métricas del entrenamiento completo.
+La muestra permite probar el pipeline y el recomendador sin disponer de las 103.082 reseñas originales.
 
-El dataset original no se incluye en el repositorio debido a su tamaño. Para reproducir el entrenamiento completo es necesario disponer de ese archivo.
+**Importante:** esta muestra se ha seleccionado para demostrar las funcionalidades, no para representar estadísticamente el dataset completo ni reproducir las métricas del entrenamiento.
+
+### Motivación
+
+Se eligió este dataset porque contiene reseñas escritas por usuarios reales y valoraciones numéricas.
+
+Esto permite combinar:
+
+1. Clasificación de sentimientos con scikit-learn.
+2. Búsqueda de opiniones relevantes mediante TF-IDF.
+3. Recomendaciones personalizadas.
+4. Explicaciones generadas mediante NVIDIA.
+
+Además, este mismo dominio se utilizará para desarrollar el Proyecto III.
 
 ---
 
 ## 3. Preparación de datos
 
-La preparación se realiza mediante las clases:
+La preparación se realiza mediante tres clases:
 
 - `CafeLoader`: carga los archivos CSV.
 - `CafeValidator`: comprueba las columnas y elimina reseñas sin texto.
-- `DataPreparation`: selecciona las variables necesarias, elimina textos duplicados y asigna las etiquetas de sentimiento.
+- `DataPreparation`: selecciona las variables, elimina textos duplicados para el entrenamiento y asigna las etiquetas de sentimiento.
 
-Los sentimientos se obtienen a partir de `rating_review`:
+Las etiquetas se obtienen a partir de `rating_review`:
 
 | Valoración | Sentimiento |
 |---|---|
@@ -83,27 +127,27 @@ Los sentimientos se obtienen a partir de `rating_review`:
 | 30 | Neutro |
 | 40 o 50 | Positivo |
 
-La eliminación de textos duplicados se aplica a los datos utilizados para entrenar el modelo, sin eliminar esas reseñas del dataset original utilizado para generar perfiles.
+Los textos duplicados se eliminan durante la preparación de los datos de entrenamiento, pero las reseñas originales siguen disponibles para crear perfiles y recomendaciones.
 
 ---
 
 ## 4. Modelo de Machine Learning
 
-Se ha desarrollado un clasificador de sentimientos con **scikit-learn**.
+Se utiliza un clasificador de sentimientos desarrollado con **scikit-learn**.
 
 ### Modelo seleccionado
 
-- Algoritmo: `LogisticRegression`.
-- Representación del texto: `TfidfVectorizer`.
-- Número máximo de características: 10.000.
-- Iteraciones máximas: 1.000.
-- Semilla de partición: `random_state=42`.
+- **Algoritmo:** `LogisticRegression`.
+- **Representación del texto:** `TfidfVectorizer`.
+- **Número máximo de características:** 10.000.
+- **Iteraciones máximas:** 1.000.
+- **Semilla de partición:** `random_state=42`.
 
-Se utilizó inicialmente Random Forest como alternativa, pero finalmente se seleccionó regresión logística por su mejor rendimiento en validación y su menor complejidad computacional.
+Inicialmente se utilizó Random Forest como alternativa, pero finalmente se seleccionó regresión logística por su mejor rendimiento en validación y menor complejidad computacional.
 
 ### División de datos
 
-Los datos se dividen en tres conjuntos:
+Se utiliza una división estratificada:
 
 | Conjunto | Porcentaje |
 |---|---:|
@@ -111,9 +155,7 @@ Los datos se dividen en tres conjuntos:
 | Validación | 20 % |
 | Test | 20 % |
 
-La división utiliza estratificación para mantener aproximadamente la proporción de las tres clases.
-
-El vectorizador TF-IDF se ajusta únicamente con los datos de entrenamiento.
+El vectorizador TF-IDF se ajusta únicamente utilizando los datos de entrenamiento.
 
 ### Resultados
 
@@ -122,77 +164,80 @@ El vectorizador TF-IDF se ajusta únicamente con los datos de entrenamiento.
 | Accuracy | 0.8502 | 0.8523 |
 | F1-macro | 0.6859 | 0.6876 |
 
-El modelo alcanza una **accuracy del 85,23 % en test**.
+El modelo obtiene una **accuracy del 85,23 % en test**.
 
-El F1-macro es menor, lo que indica que el rendimiento no es igual para las tres categorías. Una de las principales dificultades es la clasificación de reseñas neutras y el desequilibrio entre clases.
+El F1-macro indica que existen diferencias de rendimiento entre las clases, especialmente por la dificultad de clasificar reseñas neutras y el desequilibrio del dataset.
 
-Las métricas completas, incluyendo precision, recall, F1-score por clase y matriz de confusión, se guardan en:
+Las métricas completas se guardan en:
 
 `outputs/metrics.json`
+
+Este archivo incluye el informe de clasificación y la matriz de confusión.
 
 ### Guardado del modelo
 
 El entrenamiento genera dos archivos mediante `joblib`:
 
 - `models/model.joblib`: modelo de regresión logística.
-- `models/vectorizer.joblib`: vectorizador TF-IDF entrenado.
+- `models/vectorizer.joblib`: vectorizador TF-IDF.
 
-Estos archivos se utilizan posteriormente para realizar predicciones sin volver a entrenar el modelo.
+**Ambos archivos están incluidos en GitHub**, por lo que se pueden realizar predicciones sin volver a entrenar.
 
 ---
 
 ## 5. Sistema de recomendaciones
 
-Café Match combina diferentes componentes para generar recomendaciones.
-
 ### Perfiles de cafeterías
 
-La clase `CafeProfiles` analiza las reseñas y genera perfiles con información sobre las cafeterías.
+La clase `CafeProfiles`, implementada en `starter/profiles.py`, analiza las reseñas y genera perfiles de los establecimientos.
 
 Se identifican menciones relacionadas con:
 
 - Tranquilidad y ruido.
-- Posibilidad de estudiar o trabajar.
+- Estudiar o trabajar.
 - Ambiente social.
-- Reuniones con amigos.
+- Grupos de amigos.
 - Matcha y brunch.
-- Originalidad y descubrimiento.
+- Originalidad.
+- Lugares escondidos.
 
-Los perfiles se guardan en:
+Los perfiles se pueden guardar en:
 
 `outputs/perfiles_cafeterias.csv`
 
+Cuando se ejecuta el recomendador, los perfiles se generan directamente a partir del dataset utilizado para evitar mezclar información del conjunto completo con la muestra.
+
 ### Búsqueda mediante TF-IDF
 
-La clase `ReviewSearch` permite recuperar reseñas relacionadas con una petición escrita en lenguaje natural.
+La clase `ReviewSearch` permite recuperar reseñas relacionadas con la petición del usuario.
 
-El funcionamiento es:
+El proceso consiste en:
 
-1. Se transforma la petición del usuario utilizando el vectorizador TF-IDF.
-2. Se calcula la similitud coseno con las reseñas.
-3. Se conservan las reseñas relacionadas con la búsqueda.
-4. Se utiliza el modelo de sentimientos para seleccionar opiniones clasificadas como positivas.
-5. Se seleccionan hasta tres reseñas por cafetería.
-6. Se calcula una puntuación de relevancia suavizada para evitar depender exclusivamente de una sola opinión.
+1. Transformar la consulta utilizando TF-IDF.
+2. Calcular la similitud coseno con las reseñas.
+3. Seleccionar las reseñas relevantes.
+4. Utilizar el modelo de sentimientos para identificar opiniones clasificadas como positivas.
+5. Seleccionar hasta tres reseñas por cafetería.
+6. Calcular una puntuación de relevancia suavizada.
 
-También se recupera una reseña real que puede utilizarse como evidencia de la recomendación.
+También se recupera una reseña real que se utiliza para explicar la recomendación.
 
 ### Ranking personalizado
 
-La clase `CafeRecommender` permite recomendar cafeterías mediante los cuatro modos predefinidos o una petición libre.
+La clase `CafeRecommender` permite recomendar cafeterías mediante cuatro modos predefinidos o una petición libre.
 
-En el modo libre, se combinan:
+En el modo libre se combinan:
 
-- La relevancia de las reseñas recuperadas.
-- La cantidad de evidencias seleccionadas.
-- La valoración media de la cafetería, ponderada según su número de reseñas.
+- Relevancia de las reseñas recuperadas.
+- Evidencias disponibles.
+- Valoración general de la cafetería.
 
-La puntuación final experimental combina:
+La puntuación final experimental utiliza:
 
 - **70 %:** relevancia relativa de la búsqueda.
 - **30 %:** valoración general ponderada.
 
-Estos pesos son provisionales y no han sido optimizados mediante una evaluación formal del recomendador.
+Los pesos todavía no han sido optimizados mediante una evaluación formal.
 
 **La puntuación final es un valor de ranking, no una probabilidad de satisfacción.**
 
@@ -202,15 +247,17 @@ Estos pesos son provisionales y no han sido optimizados mediante una evaluación
 
 El proyecto integra la API de **NVIDIA** mediante la librería `openai`, utilizando un endpoint compatible con OpenAI.
 
-La integración está implementada en la clase `AIClient`, dentro de:
+La integración se encuentra en:
 
 `starter/ia_client.py`
 
 ### Funcionalidades
 
-**Análisis de reseñas**
+La clase `AIClient` implementa tres funcionalidades principales.
 
-NVIDIA puede analizar las siguientes características:
+#### Análisis de reseñas
+
+NVIDIA analiza siete características:
 
 - Ruido.
 - Ambiente.
@@ -220,82 +267,106 @@ NVIDIA puede analizar las siguientes características:
 - Comodidad.
 - Atención.
 
-Para cada característica devuelve una etiqueta: `positivo`, `negativo`, `neutro` o `no_mencionado`.
+Para cada característica devuelve una etiqueta:
 
-**Interpretación de preferencias**
+`positivo`, `negativo`, `neutro` o `no_mencionado`.
 
-En el modo libre, NVIDIA identifica preferencias como tranquilidad, estudiar o trabajar, wifi, matcha y brunch.
+#### Interpretación de preferencias
 
-El sistema conserva también el texto original del usuario para realizar la búsqueda de reseñas.
+En el modo libre, NVIDIA interpreta las preferencias del usuario, identificando características como:
 
-**Explicación de recomendaciones**
+- Tranquilidad.
+- Estudiar o trabajar.
+- Wifi.
+- Matcha.
+- Brunch.
 
-NVIDIA genera una explicación breve para cada cafetería utilizando la reseña real recuperada.
+El sistema conserva también el texto original de la petición para realizar la búsqueda de reseñas.
 
-El objetivo es explicar qué información respalda la recomendación y qué características no se pueden confirmar.
+#### Explicación de recomendaciones
 
-Por ejemplo:
+NVIDIA genera explicaciones breves basadas en una reseña real recuperada por el sistema.
 
-> Federal Cafe podría encajar porque una reseña menciona un buen ambiente para trabajar o estudiar con el ordenador. No tenemos información suficiente para confirmar que sea un lugar tranquilo.
+El objetivo es justificar las recomendaciones sin inventar características que no estén respaldadas por las opiniones.
 
 ### Modos de funcionamiento
 
-El cliente de NVIDIA dispone de dos modos.
-
-| Modo | Funcionamiento |
+| Modo | Descripción |
 |---|---|
-| `mock` | Simula las respuestas sin realizar llamadas a la API. |
-| `real` | Realiza llamadas a NVIDIA para interpretar preferencias, analizar reseñas y generar explicaciones. |
+| `mock` | Simula las respuestas sin conectarse a NVIDIA. |
+| `real` | Realiza llamadas a NVIDIA para analizar reseñas, interpretar preferencias y generar explicaciones. |
 
-**El modo `real` es el que utiliza IA generativa de forma efectiva.** Se ha comprobado su funcionamiento mediante llamadas reales a NVIDIA.
+El modo `mock` permite desarrollar, ejecutar pruebas y demostrar el proyecto sin consumir llamadas a la API.
 
-El modo `mock` se utiliza para desarrollo, pruebas automáticas y demostraciones sin necesidad de una clave de API.
+El modo `real` utiliza inteligencia artificial generativa y necesita una clave de NVIDIA válida.
+
+### Pruebas realizadas
+
+Hemos comprobado el pipeline en ambos modos.
+
+En modo `mock`:
+
+- Se procesaron 760 cafeterías utilizando el dataset completo.
+- Se procesaron 145 cafeterías utilizando la muestra.
+
+En modo `real`:
+
+- Se analizaron cinco reseñas de cinco cafeterías.
+- Las cinco peticiones a NVIDIA devolvieron HTTP 200.
+- Los resultados se guardaron en `outputs/resultados_pipeline_real.csv`.
+- Se generó un resumen mediante `starter.review_summary`.
+
+También se comprobó el recomendador en modo `real`, verificando que NVIDIA interpreta preferencias y genera explicaciones basadas en reseñas recuperadas.
+
+El archivo `AI_USAGE.md` contiene información adicional sobre la integración de IA y las pruebas realizadas.
 
 ---
 
 ## 7. Estructura del proyecto
 
-```text
-Proyecto_ii/
-│
-├── starter/
-│   ├── __init__.py
-│   ├── loader.py
-│   ├── validator.py
-│   ├── data_preparation.py
-│   ├── train.py
-│   ├── predict.py
-│   ├── profiles.py
-│   ├── review_search.py
-│   ├── recommender.py
-│   ├── ia_client.py
-│   ├── pipeline.py
-│   └── review_summary.py
-│
-├── tests/
-│   ├── test_predict.py
-│   ├── test_profiles.py
-│   ├── test_review_search.py
-│   ├── test_ia_client.py
-│   ├── test_recommender.py
-│   └── test_pipeline.py
-│
-├── data/
-│   └── cafeterias_muestra.csv
-│
-├── outputs/
-│   └── metrics.json
-│
-├── models/
-│
-├── .gitignore
-├── .env.example
-├── requirements.txt
-├── README.md
-└── AI_USAGE.md
-```
+La estructura principal es:
 
-Los archivos generados, los modelos entrenados y el dataset completo se mantienen localmente y no se incluyen en el repositorio.
+    Proyecto_ii/
+    ├── starter/
+    │   ├── __init__.py
+    │   ├── loader.py
+    │   ├── validator.py
+    │   ├── data_preparation.py
+    │   ├── train.py
+    │   ├── predict.py
+    │   ├── profiles.py
+    │   ├── review_search.py
+    │   ├── recommender.py
+    │   ├── ia_client.py
+    │   ├── pipeline.py
+    │   ├── review_summary.py
+    │   └── create_sample.py
+    │
+    ├── tests/
+    │   ├── test_predict.py
+    │   ├── test_profiles.py
+    │   ├── test_review_search.py
+    │   ├── test_ia_client.py
+    │   ├── test_recommender.py
+    │   └── test_pipeline.py
+    │
+    ├── data/
+    │   └── cafeterias_muestra.csv
+    │
+    ├── models/
+    │   ├── model.joblib
+    │   └── vectorizer.joblib
+    │
+    ├── outputs/
+    │   └── metrics.json
+    │
+    ├── .env.example
+    ├── .gitignore
+    ├── requirements.txt
+    ├── AI_USAGE.md
+    └── README.md
+
+El dataset completo y los CSV generados durante la ejecución se conservan localmente y no se incluyen en el repositorio.
 
 ---
 
@@ -303,25 +374,21 @@ Los archivos generados, los modelos entrenados y el dataset completo se mantiene
 
 El proyecto utiliza Python, scikit-learn y la API de NVIDIA.
 
-### 8.1. Crear un entorno virtual
+La instalación se ha probado con Python 3.14.7 y `uv` desde un clon nuevo de GitHub.
 
-Desde la carpeta `Proyecto_ii`:
+### Crear el entorno virtual
 
-```bash
-uv venv
-```
+Desde `Proyecto_ii`:
 
-En Git Bash (Windows), activar el entorno:
+    uv venv
 
-```bash
-source .venv/Scripts/activate
-```
+Activar el entorno en Git Bash:
 
-### 8.2. Instalar dependencias
+    source .venv/Scripts/activate
 
-```bash
-uv pip install -r requirements.txt
-```
+### Instalar dependencias
+
+    uv pip install -r requirements.txt
 
 Las principales librerías utilizadas son:
 
@@ -333,45 +400,54 @@ Las principales librerías utilizadas son:
 - `python-dotenv`
 - `pytest`
 
-### 8.3. Configuración de NVIDIA
+### Configuración de NVIDIA
 
-Para utilizar el modo real es necesario disponer de una clave de NVIDIA.
+El repositorio incluye `.env.example`.
 
-Crear un archivo `.env` a partir de `.env.example`:
+Para ejecutar NVIDIA en modo real, crear un archivo `.env` local con:
 
-```dotenv
-MODO_IA=mock
-NVIDIA_API_KEY=TU_CLAVE_AQUI
-NVIDIA_MODEL=nvidia/nemotron-3.5-super-vl-120b-a12b
-```
+    MODO_IA=real
+    NVIDIA_API_KEY=TU_CLAVE_AQUI
+    NVIDIA_MODEL=nvidia/nemotron-3.5-super-vl-120b-a12b
 
-Para utilizar NVIDIA, cambiar `MODO_IA=mock` por `MODO_IA=real`.
+El archivo `.env` contiene información privada y no debe subirse a GitHub.
 
-**El archivo `.env` no debe subirse a GitHub**, ya que contiene la clave privada de la API.
+Para ejecutar sin utilizar NVIDIA se puede configurar:
+
+    MODO_IA=mock
 
 ---
 
 ## 9. Ejecución del proyecto
 
-Los siguientes comandos deben ejecutarse desde la carpeta `Proyecto_ii`, con el entorno virtual activo.
+Todos los comandos deben ejecutarse desde la carpeta `Proyecto_ii`, con el entorno virtual activado.
 
 ### 9.1. Entrenar el modelo
 
-Requiere el dataset completo en `data/cafeterias_limpias.csv`.
+Requiere el dataset completo en:
 
-```bash
-python -m starter.train
-```
+`data/cafeterias_limpias.csv`
 
-Este comando entrena el modelo, calcula las métricas y guarda el modelo, el vectorizador y los resultados.
+Comando:
 
-### 9.2. Generar perfiles de cafeterías
+    python -m starter.train
 
-```bash
-python -m starter.profiles
-```
+Este comando:
 
-Genera el archivo:
+1. Carga y valida los datos.
+2. Prepara las etiquetas de sentimiento.
+3. Divide los datos en entrenamiento, validación y test.
+4. Entrena la regresión logística.
+5. Calcula las métricas.
+6. Guarda el modelo y el vectorizador.
+
+### 9.2. Generar perfiles
+
+    python -m starter.profiles
+
+Utiliza el dataset completo si existe y, en caso contrario, la muestra de 300 reseñas.
+
+Genera:
 
 `outputs/perfiles_cafeterias.csv`
 
@@ -379,149 +455,209 @@ Genera el archivo:
 
 **Modo mock:**
 
-```bash
-MODO_IA=mock python -m starter.pipeline
-```
+    MODO_IA=mock python -m starter.pipeline
 
 **Modo real:**
 
-```bash
-MODO_IA=real python -m starter.pipeline
-```
+    MODO_IA=real python -m starter.pipeline
 
-El pipeline carga y valida las reseñas, predice su sentimiento y analiza características mediante `AIClient`.
+El pipeline:
 
-Para esta primera versión se selecciona una reseña por cafetería. En modo real, el pipeline limita el análisis a cinco reseñas para controlar las llamadas a NVIDIA.
+1. Carga las reseñas.
+2. Valida las columnas.
+3. Selecciona una reseña por cafetería.
+4. Predice el sentimiento utilizando el modelo sklearn.
+5. Analiza las características con NVIDIA o su versión simulada.
+6. Guarda los resultados en CSV.
 
 Los resultados se guardan en:
 
 - `outputs/resultados_pipeline_mock.csv`
 - `outputs/resultados_pipeline_real.csv`
 
-### 9.4. Ejecutar Café Match
+El pipeline incluye logs de inicio, progreso y finalización.
+
+En modo `real` se limita el análisis a cinco reseñas para evitar llamadas innecesarias a la API.
+
+### 9.4. Ejecutar el recomendador
 
 **Modo mock:**
 
-```bash
-MODO_IA=mock python -m starter.recommender
-```
+    MODO_IA=mock python -m starter.recommender
 
 **Modo real con NVIDIA:**
 
-```bash
-MODO_IA=real python -m starter.recommender
-```
+    MODO_IA=real python -m starter.recommender
 
-Al ejecutar el programa se puede seleccionar uno de los modos:
+Al iniciar el programa aparece:
 
-```text
-CAFÉ MATCH
+    CAFÉ MATCH
+    Modos: focus, social, trendy, surprise, libre
+    Elige un modo:
 
-Modos: focus, social, trendy, surprise, libre
-Elige un modo:
-```
+En el modo libre, el usuario escribe lo que busca.
 
-En el modo libre, el usuario introduce su petición en lenguaje natural.
+Por ejemplo:
 
-El programa interpreta las preferencias, recupera las reseñas relevantes, genera un ranking y muestra una explicación para cada cafetería.
+    Quiero una cafetería tranquila para estudiar
 
-### Recomendación para la demostración real
+El sistema interpreta las preferencias, recupera reseñas relevantes y devuelve hasta tres cafeterías con su valoración, puntuación y explicación.
 
-Para la demostración con NVIDIA se recomienda utilizar **`top_n=3`** en la llamada a `recommend_from_text()` del método `main()`.
+### 9.5. Generar resumen de opiniones
 
-De esta forma se muestran tres cafeterías recomendadas y se evitan llamadas innecesarias a la API.
+Después de ejecutar el pipeline en modo `real`:
 
-En la versión actual, cada explicación generada en modo real implica una llamada adicional a NVIDIA.
+    python -m starter.review_summary
 
-### Ejecución con el dataset de muestra
+Este comando utiliza:
 
-El recomendador permite ejecutarse directamente con los archivos incluidos en GitHub.
+`outputs/resultados_pipeline_real.csv`
 
-Al iniciarse, comprueba qué dataset está disponible:
+Y genera:
 
-- Si existe `data/cafeterias_limpias.csv`, utiliza las 103.082 reseñas originales.
-- Si no existe, utiliza automáticamente `data/cafeterias_muestra.csv`, que contiene 300 reseñas.
+`outputs/resumen_opiniones.csv`
 
-Los perfiles se generan a partir del mismo dataset utilizado para buscar las recomendaciones. Por tanto, no es necesario generar previamente `outputs/perfiles_cafeterias.csv`.
+El resumen contiene los conteos de opiniones positivas y negativas por característica y cafetería.
 
-Para ejecutar la demostración en modo simulado:
+### 9.6. Generar la muestra
 
-```bash
-MODO_IA=mock python -m starter.recommender
-```
+Si se dispone del dataset completo:
 
-Para utilizar NVIDIA real:
+    python -m starter.create_sample
 
-```bash
-MODO_IA=real python -m starter.recommender
-```
+Genera:
 
-En el modo libre, el sistema interpreta las preferencias, busca reseñas y devuelve hasta tres cafeterías con sus explicaciones.
+`data/cafeterias_muestra.csv`
 
-La demostración con la muestra se ha comprobado correctamente utilizando la petición:
+La muestra contiene 300 reseñas reales seleccionadas para incluir características útiles en los diferentes modos de recomendación.
 
-*Quiero una cafetería tranquila para estudiar.*
-
-La muestra ha sido seleccionada para incluir ejemplos de características relacionadas con los cuatro modos de recomendación. No constituye una muestra estadísticamente representativa del dataset completo y sus rankings pueden ser diferentes.
 ---
 
-## 10. Tests
+## 10. Reproducibilidad
 
-El proyecto utiliza `pytest` para comprobar el funcionamiento de los distintos componentes.
+El proyecto permite dos formas de ejecución.
+
+### Ejecución con el dataset completo
+
+Si existe:
+
+`data/cafeterias_limpias.csv`
+
+El pipeline y el recomendador utilizan las 103.082 reseñas originales.
+
+### Ejecución con la muestra
+
+Si no existe el dataset completo, utilizan automáticamente:
+
+`data/cafeterias_muestra.csv`
+
+De esta manera, el proyecto puede ejecutarse directamente después de clonar GitHub.
+
+Los perfiles se generan a partir del mismo dataset utilizado para las recomendaciones, evitando mezclar información de distintas versiones.
+
+### Comprobación desde GitHub
+
+Se realizó una instalación limpia del repositorio:
+
+1. Clonación desde GitHub.
+2. Creación de un entorno virtual.
+3. Instalación de las dependencias.
+4. Ejecución del recomendador en modo `mock`.
+5. Ejecución de los tests automáticos.
+
+La aplicación detectó correctamente la muestra y generó tres recomendaciones.
+
+**La muestra permite probar el sistema, pero no reproducir las métricas originales del entrenamiento completo.**
+
+---
+
+## 11. Tests y calidad
+
+El proyecto utiliza `pytest` para comprobar el funcionamiento de sus componentes.
 
 Se incluyen pruebas para:
 
 - Predicción de sentimientos.
 - Generación de perfiles.
 - Búsqueda de reseñas.
-- Cliente de NVIDIA en modo simulado.
-- Recomendaciones personalizadas.
+- Cliente de NVIDIA.
+- Recomendador personalizado.
 - Ejecución del pipeline.
 
 Para ejecutar todos los tests:
 
-```bash
-python -m pytest -q
-```
+    python -m pytest -q
 
-**Último resultado comprobado:**
+Último resultado comprobado:
 
-```text
-24 passed
-```
+    24 passed
 
-Las pruebas utilizan datos pequeños y componentes simulados cuando corresponde, evitando llamadas reales a NVIDIA durante los tests automáticos.
+Los 24 tests también se superaron desde una instalación limpia de GitHub.
 
-Algunas pruebas también verifican la carga y predicción del modelo entrenado, por lo que requieren disponer de los archivos `joblib`.
+Los tests automáticos no realizan llamadas reales a NVIDIA, evitando depender de una conexión externa o de una clave privada.
 
 ---
 
-## 11. Reproducibilidad
+## 12. Limitaciones
 
-El proyecto utiliza una división de entrenamiento, validación y test reproducible mediante `random_state=42`.
+El proyecto presenta algunas limitaciones:
 
-El modelo y el vectorizador pueden regenerarse ejecutando el script de entrenamiento con el dataset completo.
-
-El repositorio incluye una muestra de 300 reseñas para evitar subir archivos demasiado grandes.
-
-Para reproducir los resultados completos del modelo, así como las recomendaciones basadas en las 103.082 reseñas, es necesario disponer de `data/cafeterias_limpias.csv`.
-
-La muestra incluida no permite reproducir las métricas originales ni todos los rankings.
-
-El modo `mock` permite probar la integración del código sin conexión con NVIDIA, mientras que el modo `real` requiere una clave de API válida.
-
----
-
-## 12. Limitaciones y mejoras futuras
-
-Aunque el sistema genera recomendaciones personalizadas, todavía presenta algunas limitaciones:
-
-- TF-IDF utiliza coincidencias léxicas y no comprende todos los sinónimos o significados.
-- Una reseña positiva en general puede contener comentarios negativos sobre alguna característica concreta.
+- TF-IDF depende de coincidencias entre palabras y no interpreta completamente el significado de los textos.
+- Una reseña positiva puede contener comentarios negativos sobre características concretas.
 - Las preferencias detectadas no se verifican todavía de forma individual para cada cafetería.
-- La relevancia de las reseñas no garantiza que el establecimiento cumpla todos los requisitos del usuario.
-- El ranking utiliza pesos experimentales que requieren una evaluación más completa.
+- La relevancia de una reseña no garantiza que el establecimiento cumpla todas las preferencias.
+- Los pesos del ranking son experimentales y requieren evaluación adicional.
+- Las reseñas son históricas, por lo que algunas características pueden haber cambiado.
+- NVIDIA puede generar interpretaciones incorrectas y sus explicaciones deben considerarse orientativas.
+- La muestra de 300 reseñas permite demostrar el funcionamiento, pero no representa estadísticamente el dataset completo.
 
-Como continuación del proyecto, se plantea mejorar la evaluación del recomendador, ampliar el análisis de evidencias y desarrollar una interfaz interactiva para consultar las recomendaciones de forma más sencilla.
+---
 
-El objetivo es avanzar hacia un sistema de recomendación explicable, que combine Machine Learning, búsqueda de información e inteligencia artificial generativa utilizando datos reales.
+## 13. Continuidad hacia el Proyecto III
+
+El Proyecto II constituye la base técnica del **Proyecto III (Trabajo Final)**.
+
+En esta entrega ya se han desarrollado:
+
+- Carga y validación de datos.
+- Pipeline automatizado con logs.
+- Modelo de Machine Learning entrenado.
+- Persistencia e inferencia del modelo.
+- Sistema de recomendación.
+- Integración de NVIDIA en modo `mock` y `real`.
+- Tests automáticos.
+- Configuración y documentación del proyecto.
+
+### Mejoras previstas para el Proyecto III
+
+#### Aplicación interactiva con Streamlit
+
+Se desarrollará una interfaz para que los usuarios puedan introducir sus preferencias y visualizar las cafeterías recomendadas.
+
+#### API con FastAPI
+
+Se plantea incorporar una API que permita consultar recomendaciones y predicciones del modelo, además de exponer operaciones de análisis con IA generativa.
+
+#### Validación y gestión de errores
+
+Se ampliará la validación de entradas, las respuestas de error y la robustez de las llamadas a servicios externos.
+
+#### Integración continua y despliegue
+
+Se incorporarán herramientas para ejecutar tests automáticamente y facilitar el despliegue de la aplicación.
+
+#### Monitorización
+
+Se estudiará cómo registrar errores, tiempos de respuesta, uso de la API y comportamiento de las recomendaciones.
+
+El objetivo es reutilizar los componentes desarrollados en el Proyecto II sin tener que reescribir el núcleo del sistema.
+
+Estas funcionalidades corresponden a la ampliación prevista y no se presentan como ya implementadas.
+
+---
+
+## 14. Referencias
+
+- Pérez-Núñez, P., Blanco, E., Bolón-Canedo, V. y Remeseiro, B. *TripAdvisor Restaurant Reviews*, versión 2.0.0. Zenodo. https://doi.org/10.5281/zenodo.14622324
+- Creative Commons. *Attribution 4.0 International (CC BY 4.0).* https://creativecommons.org/licenses/by/4.0/
+- Documentación adicional del uso de inteligencia artificial: [AI_USAGE.md](AI_USAGE.md)

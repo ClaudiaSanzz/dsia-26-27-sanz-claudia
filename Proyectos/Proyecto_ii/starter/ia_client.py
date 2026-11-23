@@ -30,26 +30,36 @@ class AIClient:
                 api_key=api_key
             )
 
+    
     def ask_nvidia(self, prompt, json_response=True):
         # Enviamos la petición a NVIDIA
-        response = self.client.chat.completions.create(
-            model=os.getenv(
-                "NVIDIA_MODEL",
-                "nvidia/nemotron-3.5-super-vl-120b-a12b"
-            ),
-            messages=[
-                {"role": "user", "content": prompt}
-            ],
-            temperature=0.2,
-            top_p=0.95,
-            max_tokens=1000,
-            stream=False,
-            extra_body={
-                "chat_template_kwargs": {
-                    "enable_thinking": False
+        try:
+            response = self.client.chat.completions.create(
+                model=os.getenv(
+                    "NVIDIA_MODEL",
+                    "nvidia/nemotron-3.5-super-vl-120b-a12b"
+                ),
+                messages=[
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=0.2,
+                top_p=0.95,
+                max_tokens=1000,
+                stream=False,
+                extra_body={
+                    "chat_template_kwargs": {
+                        "enable_thinking": False
+                    }
                 }
-            }
-        )
+            )
+        except Exception as error:
+            raise RuntimeError(
+                f"Error al conectar con NVIDIA: {error}"
+            ) from error
+
+        # Comprobamos que NVIDIA devuelve contenido
+        if not response.choices:
+            raise ValueError("NVIDIA no ha devuelto respuestas")
 
         content = response.choices[0].message.content
 
@@ -67,7 +77,13 @@ class AIClient:
             content = content.replace("```json", "")
             content = content.replace("```", "").strip()
 
-        return json.loads(content)
+        # Comprobamos que la respuesta sea un JSON válido
+        try:
+            return json.loads(content)
+        except json.JSONDecodeError as error:
+            raise ValueError(
+                "NVIDIA ha devuelto un JSON no válido"
+            ) from error
 
     def analyze_review(self, text):
         # Características de las reseñas

@@ -57,3 +57,32 @@ def test_invalid_nvidia_response(monkeypatch):
 
     with pytest.raises(ValueError):
         ai.interpret_preferences("Quiero una cafetería tranquila")
+
+
+def test_nvidia_json_invalido():
+    from unittest.mock import MagicMock
+    import pytest
+
+    from starter.ia_client import AIClient
+
+    ai = AIClient(mode="mock")
+    ai.client = MagicMock()
+    ai.client.chat.completions.create.return_value.choices[0].message.content = "Esto no es JSON"
+
+    with pytest.raises(ValueError, match="JSON no válido"):
+        ai.ask_nvidia("Analiza esta reseña")
+
+
+def test_nvidia_error_conexion():
+    from unittest.mock import MagicMock
+    import pytest
+
+    from starter.ia_client import AIClient
+
+    ai = AIClient(mode="mock")
+    ai.client = MagicMock()
+    ai.client.chat.completions.create.side_effect = ConnectionError("Sin conexión")
+
+    with pytest.raises(RuntimeError, match="Error al conectar con NVIDIA"):
+        ai.ask_nvidia("Analiza esta reseña")
+
