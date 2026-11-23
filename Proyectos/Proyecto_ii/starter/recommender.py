@@ -1,8 +1,12 @@
+
 import os
+from pathlib import Path
+
 import pandas as pd
 
 from starter.ia_client import AIClient
 from starter.loader import CafeLoader
+from starter.profiles import CafeProfiles
 from starter.review_search import ReviewSearch
 
 
@@ -38,8 +42,10 @@ class CafeRecommender:
         global_mean = cafes["valoracion_media"].mean()
 
         cafes["score_base"] = (
-            (cafes["num_resenas"] * cafes["valoracion_media"]
-             + 20 * global_mean)
+            (
+                cafes["num_resenas"] * cafes["valoracion_media"]
+                + 20 * global_mean
+            )
             / (cafes["num_resenas"] + 20)
         ) / 5 * 100
 
@@ -179,7 +185,8 @@ class CafeRecommender:
         )
 
         cafes = cafes.sort_values(
-            "final_score", ascending=False
+            "final_score",
+            ascending=False
         )
 
         # Nos quedamos con las mejores cafeterías
@@ -195,7 +202,10 @@ class CafeRecommender:
                 review = ""
 
             if not review:
-                explanation = "No tenemos una reseña disponible para explicar esta recomendación."
+                explanation = (
+                    "No tenemos una reseña disponible "
+                    "para explicar esta recomendación."
+                )
             else:
                 explanation = ai.explain_recommendation(
                     text,
@@ -211,7 +221,20 @@ class CafeRecommender:
 
 
 def main():
-    profiles = pd.read_csv("outputs/perfiles_cafeterias.csv")
+    # Utilizamos el dataset completo si existe; si no, la muestra
+    ruta = "data/cafeterias_limpias.csv"
+
+    if not Path(ruta).exists():
+        ruta = "data/cafeterias_muestra.csv"
+
+    print(f"\nDataset utilizado: {ruta}")
+
+    # Cargamos las reseñas una sola vez
+    reviews = CafeLoader().load_csv(ruta)
+
+    # Generamos los perfiles con esas mismas reseñas
+    profiles = CafeProfiles().create_profiles(reviews)
+
     recommender = CafeRecommender()
 
     print("\nCAFÉ MATCH")
@@ -222,11 +245,7 @@ def main():
     if mode == "libre":
         text = input("¿Qué buscas en una cafetería? ")
 
-        # Cargamos las reseñas
-        reviews = CafeLoader().load_csv(
-            "data/cafeterias_limpias.csv"
-        )
-
+        # Buscamos reseñas y configuramos NVIDIA
         search = ReviewSearch(reviews)
         ai = AIClient(mode=os.getenv("MODO_IA", "mock"))
 
@@ -245,12 +264,15 @@ def main():
 
             for _, cafe in results.iterrows():
                 print(f"\n{cafe['name']}")
+
                 print(
                     f"Valoración: {cafe['valoracion_media']:.2f}/5"
                 )
+
                 print(
                     f"Puntuación: {cafe['final_score']:.3f}"
                 )
+
                 print(f"Explicación: {cafe['explanation']}")
                 print("-" * 50)
 

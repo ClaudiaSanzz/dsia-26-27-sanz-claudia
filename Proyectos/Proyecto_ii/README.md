@@ -433,6 +433,36 @@ De esta forma se muestran tres cafeterías recomendadas y se evitan llamadas inn
 
 En la versión actual, cada explicación generada en modo real implica una llamada adicional a NVIDIA.
 
+### Ejecución con el dataset de muestra
+
+El recomendador permite ejecutarse directamente con los archivos incluidos en GitHub.
+
+Al iniciarse, comprueba qué dataset está disponible:
+
+- Si existe `data/cafeterias_limpias.csv`, utiliza las 103.082 reseñas originales.
+- Si no existe, utiliza automáticamente `data/cafeterias_muestra.csv`, que contiene 300 reseñas.
+
+Los perfiles se generan a partir del mismo dataset utilizado para buscar las recomendaciones. Por tanto, no es necesario generar previamente `outputs/perfiles_cafeterias.csv`.
+
+Para ejecutar la demostración en modo simulado:
+
+```bash
+MODO_IA=mock python -m starter.recommender
+```
+
+Para utilizar NVIDIA real:
+
+```bash
+MODO_IA=real python -m starter.recommender
+```
+
+En el modo libre, el sistema interpreta las preferencias, busca reseñas y devuelve hasta tres cafeterías con sus explicaciones.
+
+La demostración con la muestra se ha comprobado correctamente utilizando la petición:
+
+*Quiero una cafetería tranquila para estudiar.*
+
+La muestra ha sido seleccionada para incluir ejemplos de características relacionadas con los cuatro modos de recomendación. No constituye una muestra estadísticamente representativa del dataset completo y sus rankings pueden ser diferentes.
 ---
 
 ## 10. Tests

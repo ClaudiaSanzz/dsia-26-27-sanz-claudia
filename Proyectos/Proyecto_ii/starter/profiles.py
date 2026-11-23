@@ -177,7 +177,13 @@ def main():
     from starter.validator import CafeValidator
 
     # Cargamos y validamos las reseñas
-    reviews = CafeLoader().load_csv("data/cafeterias_limpias.csv")
+    # Utilizamos el dataset completo si existe; si no, la muestra
+    ruta = "data/cafeterias_limpias.csv"
+
+    if not Path(ruta).exists():
+        ruta = "data/cafeterias_muestra.csv"
+
+    reviews = CafeLoader().load_csv(ruta)
     reviews = CafeValidator().validate_columns(reviews)
 
     # Generamos y guardamos los perfiles
