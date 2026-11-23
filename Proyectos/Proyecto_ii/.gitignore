@@ -14,5 +14,6 @@ data/*.csv
 # Modelos entrenados
 models/*.joblib
 
-# Resultados generados
-outputs/*.csv
+# Permitimos subir solo los modelos utilizados
+!models/model.joblib
+!models/vectorizer.joblib
