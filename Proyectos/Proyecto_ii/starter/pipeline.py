@@ -1,8 +1,8 @@
 import logging
 import os
+from pathlib import Path
 
 import pandas as pd
-
 from dotenv import load_dotenv
 
 from starter.loader import CafeLoader
@@ -30,11 +30,16 @@ class CafePipeline:
         self.ai = AIClient(mode)
 
     def load_reviews(self):
-        # Cargamos y preparamos las reseñas
-        reviews = self.loader.load_csv(
-            "data/cafeterias_limpias.csv"
-        )
+        # Utilizamos el dataset completo si existe; si no, la muestra
+        ruta = "data/cafeterias_limpias.csv"
 
+        if not Path(ruta).exists():
+            ruta = "data/cafeterias_muestra.csv"
+
+        logging.info("Dataset utilizado: %s", ruta)
+
+        # Cargamos y validamos las reseñas
+        reviews = self.loader.load_csv(ruta)
         reviews = self.validator.validate_columns(reviews)
         reviews = self.validator.remove_empty_reviews(reviews)
 
