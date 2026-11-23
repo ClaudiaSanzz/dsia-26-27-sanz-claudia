@@ -231,7 +231,7 @@ def main():
         ai = AIClient(mode=os.getenv("MODO_IA", "mock"))
 
         results, preferences = recommender.recommend_from_text(
-            profiles, search, ai, text, top_n=1
+            profiles, search, ai, text, top_n=3
         )
 
         print("\nPreferencias detectadas:")
