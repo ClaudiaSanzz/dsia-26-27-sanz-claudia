@@ -17,7 +17,9 @@ def aplicar_estilo():
         "club.css",
         "comunidad.css",
         "etapas.css",
-        "blog.css"
+        "blog.css",
+        "cafeterias/explorar.css"
+
     ]
 
     for nombre in archivos:

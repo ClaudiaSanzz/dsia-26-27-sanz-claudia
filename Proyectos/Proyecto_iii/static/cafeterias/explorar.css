@@ -1,0 +1,316 @@
+
+/* ==========================================
+   COFI - PÁGINA CAFETERÍAS
+   ========================================== */
+
+/* Contenido centrado con márgenes laterales */
+
+.st-key-cofi_pagina_cafeterias {
+    width: calc(100% - 100px);
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 0 40px;
+}
+
+/* ==========================================
+   ENCABEZADO
+   ========================================== */
+
+.explorar-encabezado {
+    margin: 0 0 12px;
+    padding: 0;
+}
+
+.explorar-encabezado h1 {
+    color: #402A23;
+    font-size: clamp(2.2rem, 3.3vw, 3.1rem);
+    font-weight: 850;
+    line-height: 1.15;
+    margin: 0 0 5px;
+}
+
+.explorar-encabezado p {
+    color: #6D5140;
+    font-size: 1.03rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Menos espacio entre título y tarjetas */
+.st-key-cofi_pagina_cafeterias
+[data-testid="stVerticalBlock"] {
+    row-gap: 0.45rem;
+}
+
+/* ==========================================
+   TARJETAS DE LOS CUATRO MODOS
+   ========================================== */
+
+.explorar-tarjeta {
+    display: block;
+    height: 100%;
+
+    background: #FFF9F2;
+    border-radius: 22px;
+    overflow: hidden;
+
+    border: 2px solid transparent;
+    color: #402A23 !important;
+    text-decoration: none !important;
+
+    box-shadow: 0 7px 20px rgba(80, 45, 25, 0.11);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.explorar-tarjeta:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 16px 30px rgba(80, 45, 25, 0.18);
+}
+
+/* Tarjeta seleccionada */
+
+.explorar-seleccionado {
+    border-color: #A45B24;
+}
+
+/* Fotografías */
+
+.explorar-foto {
+    height: 145px;
+    overflow: hidden;
+    background: #E8DACB;
+}
+
+.explorar-tarjeta-texto {
+    position: relative;
+    min-height: 115px;
+    padding: 15px 17px 24px;
+}
+
+.explorar-foto img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: transform 0.4s;
+}
+
+.explorar-tarjeta:hover img {
+    transform: scale(1.05);
+}
+
+/* Parte inferior */
+
+.explorar-tarjeta-texto {
+    position: relative;
+    min-height: 137px;
+    padding: 20px 17px 30px;
+}
+
+/* Título con icono */
+
+.explorar-tarjeta-cabecera {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.explorar-icono {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    color: #904713;
+}
+
+.explorar-icono svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.explorar-tarjeta-texto h3 {
+    color: #402A23;
+    font-size: 1.16rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.explorar-tarjeta-texto p {
+    color: #655044;
+    font-size: 0.87rem;
+    line-height: 1.55;
+    padding: 0 30px 0 44px;
+    margin: 0;
+}
+
+/* Flecha circular */
+
+.explorar-flecha {
+    position: absolute;
+    bottom: 17px;
+    right: 15px;
+
+    width: 32px;
+    height: 32px;
+
+    background: #F7E5D2;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #713A16;
+    font-size: 1.2rem;
+}
+
+.explorar-tarjeta:hover .explorar-flecha {
+    background: #EBCBA8;
+}
+
+/* ==========================================
+   BUSCADOR CENTRADO
+   ========================================== */
+
+.st-key-cofi_pagina_cafeterias
+div[data-testid="stForm"] {
+    border: none;
+    background: transparent;
+    padding: 4px 0 4px;
+}
+
+.st-key-cofi_pagina_cafeterias
+div[data-testid="stTextInput"] input {
+    background: #FFF9F2 !important;
+    color: #402A23 !important;
+
+    border: 1px solid #D9B797 !important;
+    border-radius: 30px !important;
+
+    min-height: 52px;
+    padding: 12px 22px !important;
+}
+
+.st-key-cofi_pagina_cafeterias
+div[data-testid="stTextInput"] input:focus {
+    border-color: #904713 !important;
+}
+
+/* Botón de búsqueda */
+
+.st-key-cofi_pagina_cafeterias
+div[data-testid="stFormSubmitButton"] button {
+    background: #904713 !important;
+    color: #FFFFFF !important;
+    border-radius: 30px !important;
+    min-height: 48px;
+    white-space: nowrap;
+}
+
+/* ==========================================
+   RESULTADOS
+   ========================================== */
+
+.explorar-resultados-titulo {
+    margin: 20px 0 20px;
+    padding: 0;
+
+    border-bottom: 1px solid #E5D8C9;
+}
+
+.explorar-resultados-titulo h2 {
+    color: #402A23;
+    font-size: 1.85rem;
+    font-weight: 800;
+    margin: 0 0 14px;
+}
+
+.explorar-resultado {
+    background: #FFF9F2;
+    border-radius: 20px;
+
+    min-height: 160px;
+    padding: 25px;
+    margin-bottom: 20px;
+
+    border: 1px solid #EEE1D5;
+    box-shadow: 0 6px 16px rgba(80, 45, 25, 0.08);
+
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.explorar-resultado:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 28px rgba(80, 45, 25, 0.14);
+}
+
+.explorar-posicion {
+    color: #A4663A;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.explorar-resultado h3 {
+    color: #402A23;
+    font-size: 1.3rem;
+    margin: 14px 0;
+}
+
+.explorar-dato {
+    color: #655044;
+    font-size: 0.94rem;
+    line-height: 1.8;
+}
+
+/* ==========================================
+   TABLETS Y MÓVILES
+   ========================================== */
+
+@media (max-width: 1000px) {
+    .st-key-cofi_pagina_cafeterias {
+        width: calc(100% - 40px);
+    }
+
+    .explorar-foto {
+        height: 130px;
+    }
+
+    .explorar-tarjeta-texto {
+        padding: 14px 12px 28px;
+    }
+
+    .explorar-tarjeta-texto p {
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 700px) {
+    .st-key-cofi_pagina_cafeterias {
+        width: calc(100% - 24px);
+    }
+
+    .explorar-encabezado h1 {
+        font-size: 2rem;
+    }
+
+    .explorar-tarjeta-cabecera {
+        gap: 7px;
+    }
+
+    .explorar-icono {
+        width: 26px;
+        height: 26px;
+    }
+
+    .explorar-tarjeta-texto h3 {
+        font-size: 1rem;
+    }
+}
