@@ -1,20 +1,30 @@
 
 /* ==========================================
-   COFI - DISEÑO GENERAL
+   COFI - ESTILOS GENERALES
    ========================================== */
 
+:root {
+    --crema: #F7F4EF;
+    --beige: #F3E5D2;
+    --beige-claro: #FAF3E9;
+    --beige-medio: #E9DDC5;
+    --marron: #904713;
+    --marron-oscuro: #402A23;
+    --texto-suave: #916C52;
+}
+
 .stApp {
-    background-color: #F7F4EF;
-    color: #402A23;
+    background-color: var(--crema);
+    color: var(--marron-oscuro);
 }
 
 .block-container {
-    max-width: 1180px;
-    padding-top: 1.5rem;
-    padding-bottom: 3rem;
+    max-width: 100%;
+    padding: 2rem 0 3rem;
 }
 
-#MainMenu, footer {
+#MainMenu,
+footer {
     visibility: hidden;
 }
 
@@ -23,7 +33,7 @@
 }
 
 h1, h2, h3 {
-    color: #402A23;
+    color: var(--marron-oscuro);
 }
 
 
@@ -36,6 +46,7 @@ h1, h2, h3 {
     font-weight: 850;
     color: #713A16;
     letter-spacing: -0.07em;
+    line-height: 1.4;
 }
 
 .cofi-menu-separador {
@@ -44,41 +55,58 @@ h1, h2, h3 {
     margin: 15px 0 25px;
 }
 
-
-/* ==========================================
-   BOTONES
-   ========================================== */
+/* Botones */
 
 div.stButton > button,
 div.stFormSubmitButton > button {
-    background: #904713;
-    color: white;
-    border: 1px solid #904713;
+    min-height: 44px;
+    padding: 8px 14px;
+
+    background-color: var(--marron);
+    color: #FFFFFF;
+    border: 1px solid var(--marron);
     border-radius: 25px;
+
     font-weight: 600;
-    transition: all 0.25s ease;
+    line-height: 1.3;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
 }
 
 div.stButton > button:hover,
 div.stFormSubmitButton > button:hover {
-    background: #AD6028;
+    background-color: #AD6028;
     color: white;
     border-color: #AD6028;
+
     transform: translateY(-2px);
     box-shadow: 0 8px 18px rgba(80, 40, 20, 0.16);
 }
 
+div.stButton > button:focus,
+div.stFormSubmitButton > button:focus {
+    color: white;
+}
+
 
 /* ==========================================
-   PORTADA
+   PORTADA A PANTALLA COMPLETA
    ========================================== */
 
 .cofi-hero {
     position: relative;
-    height: 560px;
+
     width: 100%;
+    height: calc(100vh - 180px);
+    min-height: 550px;
+    max-height: 750px;
+    margin-left: 0;
+
     overflow: hidden;
-    border-radius: 15px;
+    border-radius: 0;
     background: #4B3329;
 
     display: flex;
@@ -87,49 +115,88 @@ div.stFormSubmitButton > button:hover {
     text-align: center;
 }
 
+/* Fotografía de la cafetería */
+
 .cofi-hero > img {
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+
     width: 100%;
     height: 100%;
+
     object-fit: cover;
     object-position: center;
+
+    z-index: 0;
 }
+
+/* Capa oscura sobre la fotografía */
 
 .cofi-oscuro {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.55);
+
+    background: rgba(0, 0, 0, 0.60);
+    z-index: 1;
 }
+
+/* Textos sobre la fotografía */
 
 .cofi-hero-texto {
     position: relative;
     z-index: 2;
-    max-width: 850px;
-    padding: 40px;
+
+    width: 100%;
+    max-width: 1200px;
+    padding: 45px 30px;
+
+    color: #FFFFFF;
+}
+
+.cofi-hero-superior {
+    font-size: clamp(2rem, 4.5vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: #FFFFFF;
 }
 
 .cofi-hero-texto h1 {
-    color: white !important;
-    font-size: clamp(2.2rem, 4vw, 4rem);
-    line-height: 1.15;
-    font-weight: 800;
+    font-size: clamp(4rem, 9vw, 9rem);
+    font-weight: 900;
+    line-height: 1.05;
+
+    letter-spacing: -0.05em;
+    margin: 12px 0 20px;
+
+    color: #FFFFFF !important;
+}
+
+.cofi-hero-texto h2 {
+    font-size: clamp(2rem, 3.7vw, 3.6rem);
+    font-weight: 750;
+
+    margin: 0 0 25px;
+    color: #FFFFFF !important;
 }
 
 .cofi-hero-texto p {
-    color: white;
-    font-size: 1.18rem;
+    font-size: 1.2rem;
     line-height: 1.7;
+    color: #FFFFFF !important;
+
+    max-width: 680px;
+    margin: 0 auto;
 }
 
 
 /* ==========================================
-   SECCIONES
+   SECCIONES CON DIFERENTES FONDOS
    ========================================== */
 
 .cofi-seccion {
     padding: 45px 25px;
-    margin: 25px 0;
+    margin: 30px 0;
     border-radius: 18px;
 }
 
@@ -149,54 +216,64 @@ div.stFormSubmitButton > button:hover {
     background: #E4D2BE;
 }
 
+/* Títulos de secciones */
+
 .cofi-titulo {
     text-align: center;
     color: #4B2A1C;
-    font-size: 2rem;
+
+    font-size: 2.2rem;
     font-weight: 800;
+
     margin-bottom: 15px;
 }
 
 .cofi-intro {
     text-align: center;
     color: #916C52;
+
     font-size: 1.08rem;
     line-height: 1.7;
+
     max-width: 850px;
     margin: 0 auto 30px;
 }
 
 
 /* ==========================================
-   TARJETAS Y NIVELES
+   CLUB COFI - CUATRO NIVELES
    ========================================== */
 
 .cofi-tarjeta {
-    background: #F3E5D2;
     padding: 25px;
     border-radius: 20px;
-    min-height: 300px;
+
+    min-height: 310px;
+    height: 100%;
+
+    background: #F3E5D2;
 
     display: flex;
     flex-direction: column;
 
     box-shadow: 0 4px 12px rgba(80, 50, 30, 0.07);
-    transition: transform 0.3s ease,
-                box-shadow 0.3s ease;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-.cofi-tarjeta:hover,
-.cofi-paso:hover,
-.cofi-ranking:hover,
-.cofi-blog-tarjeta:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 30px rgba(80, 50, 30, 0.18);
+.cofi-tarjeta small {
+    color: #8B664F;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
 }
 
 .cofi-tarjeta h3 {
     color: #713A16;
     font-size: 1.25rem;
-    margin-bottom: 15px;
+    font-weight: 750;
+    margin: 0 0 15px;
 }
 
 .cofi-tarjeta p {
@@ -207,27 +284,43 @@ div.stFormSubmitButton > button:hover {
 
 .cofi-puntos {
     color: #984B16;
+    font-size: 0.98rem;
     font-weight: 700;
+
     margin-bottom: 15px;
 }
 
 .cofi-beneficio {
     border-top: 1px solid #D4C0AA;
+
     margin-top: auto;
     padding-top: 15px;
 }
 
+.cofi-beneficio strong {
+    color: #713A16;
+    font-size: 0.88rem;
+}
+
+.cofi-beneficio p {
+    margin-bottom: 0;
+}
+
 
 /* ==========================================
-   CÓMO FUNCIONA
+   CÓMO FUNCIONA COFI
    ========================================== */
 
 .cofi-paso {
     background: #F2E3CD;
     padding: 26px;
+
     border-radius: 18px;
     min-height: 165px;
-    transition: all 0.3s ease;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .cofi-paso strong {
@@ -242,41 +335,83 @@ div.stFormSubmitButton > button:hover {
 
 
 /* ==========================================
-   CARRUSEL AUTOMÁTICO
+   EFECTO HOVER DE LAS TARJETAS
+   ========================================== */
+
+.cofi-tarjeta:hover,
+.cofi-paso:hover,
+.cofi-ranking:hover,
+.cofi-blog-tarjeta:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 16px 30px rgba(80, 50, 30, 0.18);
+}
+
+
+/* ==========================================
+   CARRUSEL AUTOMÁTICO Y CIRCULAR
    ========================================== */
 
 .cofi-carrusel {
     width: 100%;
     overflow: hidden;
+
     margin: 30px 0;
 }
 
 .cofi-pista {
     --hueco: 18px;
-    --paso: calc((100% - 2 * var(--hueco)) / 3 + var(--hueco));
+
+    --paso: calc(
+        (100% - 2 * var(--hueco)) / 3
+        + var(--hueco)
+    );
 
     display: flex;
     gap: var(--hueco);
+
     animation: cofi-deslizar 48s linear infinite;
 }
 
 .cofi-foto {
-    flex: 0 0 calc((100% - 2 * var(--hueco)) / 3);
+    flex: 0 0 calc(
+        (100% - 2 * var(--hueco)) / 3
+    );
+
     margin: 0;
 }
 
 .cofi-foto img {
     width: 100%;
     height: 240px;
+
     object-fit: cover;
     border-radius: 15px;
+
+    transition: transform 0.3s ease;
 }
+
+/* Efecto al pasar el ratón */
+
+.cofi-foto img:hover {
+    transform: scale(1.03);
+}
+
+/* Pausa el carrusel cuando pasamos el ratón */
 
 .cofi-carrusel:hover .cofi-pista {
     animation-play-state: paused;
 }
 
+/*
+    El carrusel avanza una imagen cada vez.
+    Las tres primeras están duplicadas al final
+    para cerrar el ciclo sin salto visible.
+*/
+
 @keyframes cofi-deslizar {
+
     0%, 7% {
         transform: translateX(0);
     }
@@ -321,13 +456,28 @@ div.stFormSubmitButton > button:hover {
 
 .cofi-blog-tarjeta {
     background: #F3E5D2;
-    border-radius: 17px;
-    padding: 20px;
-    transition: all 0.3s ease;
+
+    border-radius: 18px;
+    padding: 25px;
+    min-height: 190px;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .cofi-blog-tarjeta h3 {
     color: #713A16;
+    font-size: 1.2rem;
+}
+
+.cofi-blog-tarjeta p {
+    color: #59483A;
+    line-height: 1.6;
+}
+
+.cofi-blog-tarjeta small {
+    color: #916C52;
 }
 
 
@@ -337,11 +487,16 @@ div.stFormSubmitButton > button:hover {
 
 .cofi-ranking {
     background: #F6F1E9;
+
     border: 1px solid #E8D9C8;
     border-radius: 15px;
+
     padding: 20px;
     margin: 12px 0;
-    transition: all 0.3s ease;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .cofi-ranking strong {
@@ -351,6 +506,7 @@ div.stFormSubmitButton > button:hover {
 .cofi-aviso {
     font-size: 0.88rem;
     color: #916C52;
+    margin-top: 8px;
 }
 
 
@@ -363,22 +519,73 @@ div[data-baseweb="select"] > div,
 .stTextArea textarea {
     background: #FFFDF9 !important;
     color: #402A23 !important;
+
     border-radius: 10px !important;
 }
 
 
 /* ==========================================
-   ADAPTACIÓN A MÓVILES
+   RESPONSIVE: TABLETS
+   ========================================== */
+
+@media (max-width: 1000px) {
+
+    .cofi-hero-texto h1 {
+        font-size: clamp(3.5rem, 8vw, 6rem);
+    }
+
+    .cofi-tarjeta {
+        padding: 18px;
+    }
+
+    .cofi-tarjeta h3 {
+        font-size: 1.1rem;
+    }
+}
+
+
+/* ==========================================
+   RESPONSIVE: MÓVILES
    ========================================== */
 
 @media (max-width: 700px) {
 
+    .block-container {
+        padding-top: 1rem;
+    }
+
     .cofi-hero {
-        height: 470px;
+        height: 560px;
+        min-height: 560px;
+        max-height: none;
     }
 
     .cofi-hero-texto {
         padding: 25px;
+    }
+
+    .cofi-hero-superior {
+        font-size: 1.8rem;
+    }
+
+    .cofi-hero-texto h1 {
+        font-size: 3.6rem;
+    }
+
+    .cofi-hero-texto h2 {
+        font-size: 1.8rem;
+    }
+
+    .cofi-hero-texto p {
+        font-size: 1rem;
+    }
+
+    .cofi-seccion {
+        padding: 30px 15px;
+    }
+
+    .cofi-titulo {
+        font-size: 1.7rem;
     }
 
     .cofi-tarjeta {
@@ -388,8 +595,64 @@ div[data-baseweb="select"] > div,
     .cofi-foto img {
         height: 170px;
     }
+}
 
-    .cofi-seccion {
-        padding: 30px 15px;
+/* Accesibilidad: reducir animaciones si el usuario lo prefiere */
+
+@media (prefers-reduced-motion: reduce) {
+    .cofi-pista {
+        animation: none;
     }
+
+    .cofi-tarjeta,
+    .cofi-paso,
+    .cofi-ranking,
+    .cofi-blog-tarjeta {
+        transition: none;
+    }
+}
+html,
+body,
+.stApp {
+    overflow-x: hidden;
+}
+/* MENÚ SUPERIOR */
+
+[data-testid="stHorizontalBlock"]:has(.cofi-logo) {
+    max-width: 1180px;
+    margin: 0 auto;
+    align-items: center;
+    min-height: 85px;
+}
+
+[data-testid="stHorizontalBlock"]:has(.cofi-logo) div.stButton {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+[data-testid="stHorizontalBlock"]:has(.cofi-logo) button {
+    min-height: 44px;
+    height: auto;
+    margin: 0;
+    padding: 10px 12px;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+/* Evita que el contenido quede tapado por arriba */
+
+[data-testid="stMainBlockContainer"] {
+    padding-top: 2rem;
+}
+/* CONTENIDO CENTRADO */
+
+.cofi-seccion {
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cofi-menu-separador {
+    max-width: 1180px;
+    margin: 12px auto 25px;
 }

@@ -26,7 +26,7 @@ def cargar_imagen(ruta):
 
 
 def mostrar_portada():
-    """Muestra la fotografía principal de COFI."""
+    """Muestra la portada principal de COFI."""
 
     raiz = Path(__file__).resolve().parent.parent
     ruta = raiz / "static" / "portada.jpg"
@@ -38,31 +38,37 @@ def mostrar_portada():
         if imagen else ""
     )
 
-    st.markdown(
-        f"""
-<div class="cofi-hero">
-    {foto}
-    <div class="cofi-oscuro"></div>
+    portada = f"""
+    <div class="cofi-hero">
+        {foto}
+        <div class="cofi-oscuro"></div>
 
-    <div class="cofi-hero-texto">
-        <h1>Descubre tu cafetería ideal<br>en Madrid.</h1>
+        <div class="cofi-hero-texto">
 
-        <p>
-            Encuentra tu rincón favorito,
-            comparte tus experiencias y ayuda a descubrir
-            los mejores cafés de la ciudad.
-        </p>
+            <div class="cofi-hero-superior">
+                Encuentra en Madrid tu
+            </div>
 
-        <p><strong>Tu café, tu momento.</strong></p>
+            <h1>Cafetería Ideal</h1>
+
+            <h2>Tu café, tu momento.</h2>
+
+            <p>
+                Descubre, compara y encuentra
+                el rincón perfecto para cada ocasión.
+            </p>
+
+        </div>
     </div>
-</div>
-""",
-        unsafe_allow_html=True
-    )
+    """
+
+    st.html(portada)
 
     st.write("")
 
-    izquierda, centro, derecha = st.columns([1.3, 1.4, 1.3])
+    izquierda, centro, derecha = st.columns(
+        [1.3, 1.4, 1.3]
+    )
 
     with centro:
         if st.button(
@@ -76,51 +82,51 @@ def mostrar_portada():
 def mostrar_como_funciona():
     """Explica los tres pasos de COFI."""
 
-    st.markdown(
-        """
-<div class="cofi-seccion cofi-seccion-beige">
-    <div class="cofi-titulo">Así funciona COFI</div>
-    <div class="cofi-intro">
-        Encontrar una cafetería que encaje contigo
-        nunca había sido tan sencillo.
+    st.html("""
+    <div class="cofi-seccion cofi-seccion-beige">
+        <div class="cofi-titulo">Así funciona COFI</div>
+
+        <div class="cofi-intro">
+            Encontrar una cafetería que encaje contigo
+            nunca había sido tan sencillo.
+        </div>
     </div>
-</div>
-""",
-        unsafe_allow_html=True
-    )
+    """)
 
     columnas = st.columns(3)
 
     pasos = [
         (
             "01 · Explora",
-            "Elige un plan o describe el tipo de cafetería que buscas."
+            "Elige un plan o describe el tipo "
+            "de cafetería que buscas."
         ),
         (
             "02 · Descubre",
-            "Recibe recomendaciones basadas en reseñas reales."
+            "Recibe recomendaciones basadas "
+            "en reseñas reales."
         ),
         (
             "03 · Comparte",
-            "Analiza una opinión y descubre qué valoran otros clientes."
+            "Analiza una opinión y descubre "
+            "qué valoran otros clientes."
         )
     ]
 
-    for columna, (titulo, descripcion) in zip(columnas, pasos):
+    for columna, (titulo, descripcion) in zip(
+        columnas, pasos
+    ):
         with columna:
-            st.markdown(
-                f"""
-<div class="cofi-paso">
-    <strong>{titulo}</strong>
-    <p>{descripcion}</p>
-</div>
-""",
-                unsafe_allow_html=True
-            )
+            st.html(f"""
+            <div class="cofi-paso">
+                <strong>{titulo}</strong>
+                <p>{descripcion}</p>
+            </div>
+            """)
 
 
 def mostrar_inicio():
-    """Reúne todas las secciones de la página principal."""
+    """Reúne las secciones de la página principal."""
 
     mostrar_portada()
     mostrar_club()

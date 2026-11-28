@@ -1,26 +1,24 @@
 
 """Sistema de puntos y niveles del Club COFI."""
 
-
 import streamlit as st
 
 
 def mostrar_club():
     """Muestra los cuatro niveles previstos de COFI."""
 
-    st.markdown(
-        """
-<div class="cofi-seccion cofi-seccion-clara">
-    <div class="cofi-titulo">Club COFI · Puntos y niveles</div>
-    <div class="cofi-intro">
-        Una comunidad para quienes disfrutan descubriendo cafeterías.
-        Participa, comparte tus experiencias y descubre
-        los niveles previstos para el Club COFI.
+    st.html("""
+    <div class="cofi-seccion cofi-seccion-clara">
+        <div class="cofi-titulo">
+            Sistema de Puntos y Niveles
+        </div>
+
+        <div class="cofi-intro">
+            Descubre los cuatro niveles de nuestra futura
+            comunidad de amantes del café.
+        </div>
     </div>
-</div>
-""",
-        unsafe_allow_html=True
-    )
+    """)
 
     niveles = [
         (
@@ -64,29 +62,35 @@ def mostrar_club():
         numero, titulo, puntos, descripcion, beneficio, color = nivel
 
         with columna:
-            st.markdown(
-                f"""
-<div class="cofi-tarjeta" style="background-color: {color};">
-    <small>NIVEL {numero}</small>
+            tarjeta = f"""
+            <div class="cofi-tarjeta"
+                 style="background-color: {color};">
 
-    <h3>{titulo}</h3>
+                <small>NIVEL {numero}</small>
 
-    <div class="cofi-puntos">{puntos}</div>
+                <h3>{titulo}</h3>
 
-    <p>{descripcion}</p>
+                <div class="cofi-puntos">
+                    {puntos}
+                </div>
 
-    <div class="cofi-beneficio">
-        <strong>Beneficio previsto</strong>
-        <p>{beneficio}</p>
-    </div>
-</div>
-""",
-                unsafe_allow_html=True
-            )
+                <p>{descripcion}</p>
+
+                <div class="cofi-beneficio">
+                    <strong>Beneficio previsto</strong>
+                    <p>{beneficio}</p>
+                </div>
+
+            </div>
+            """
+
+            st.html(tarjeta)
 
     st.write("")
 
-    izquierda, centro, derecha = st.columns([1.4, 1.2, 1.4])
+    izquierda, centro, derecha = st.columns(
+        [1.4, 1.2, 1.4]
+    )
 
     with centro:
         if st.button(
@@ -95,6 +99,5 @@ def mostrar_club():
         ):
             st.info(
                 "El sistema de puntos y recompensas "
-                "es una funcionalidad prevista. "
-                "Todavía no está activo."
+                "todavía no está activo."
             )
