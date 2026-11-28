@@ -1,0 +1,169 @@
+
+/* ==========================================
+   COFI - COMUNIDAD
+   ========================================== */
+
+/* Fondo y espacio de la sección */
+
+.st-key-cofi_como {
+    padding: 55px 45px;
+}
+
+/* Texto explicativo */
+
+.comunidad-intro {
+    max-width: 1000px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.comunidad-intro p {
+    color: #49382C;
+    font-size: 1.15rem;
+    line-height: 1.85;
+    margin-bottom: 20px;
+}
+
+.comunidad-intro strong {
+    color: #402A23;
+}
+
+.comunidad-frase {
+    margin-top: 25px;
+    font-style: italic;
+    color: #996A4C !important;
+}
+
+/* ==========================================
+   TRES TARJETAS HORIZONTALES
+   ========================================== */
+
+.comunidad-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    padding-top: 35px;
+}
+
+.comunidad-tarjeta {
+    position: relative;
+
+    background: #F7E8D5;
+    border-radius: 20px;
+    padding: 50px 28px 30px;
+    min-height: 230px;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Diferentes tonos beige */
+
+.comunidad-tarjeta:nth-child(2) {
+    background: #E8DAC1;
+}
+
+.comunidad-tarjeta:nth-child(3) {
+    background: #DED1C1;
+}
+
+/* ==========================================
+   ICONOS CON FONDO BLANCO
+   ========================================== */
+
+.comunidad-icono {
+    position: absolute;
+    top: -34px;
+    right: 22px;
+
+    width: 72px;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #FFFFFF;
+    color: #713A16;
+    border-radius: 50%;
+
+    box-shadow: 0 6px 15px rgba(80, 50, 30, 0.12);
+
+    transition: transform 0.3s ease;
+}
+
+/* Tamaño de los iconos SVG */
+
+.comunidad-icono svg {
+    width: 34px;
+    height: 34px;
+}
+
+/* ==========================================
+   TEXTOS DE LAS TARJETAS
+   ========================================== */
+
+.comunidad-tarjeta h3 {
+    color: #402A23;
+    font-size: 1.25rem;
+    font-weight: 750;
+    margin: 0 0 15px;
+}
+
+.comunidad-tarjeta p {
+    color: #59483A;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ==========================================
+   EFECTO HOVER
+   ========================================== */
+
+.comunidad-tarjeta:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 30px rgba(80, 50, 30, 0.18);
+}
+
+.comunidad-tarjeta:hover .comunidad-icono {
+    transform: translateY(-4px);
+}
+
+/* ==========================================
+   MÓVILES
+   ========================================== */
+
+@media (max-width: 700px) {
+
+    .st-key-cofi_como {
+        padding: 40px 20px;
+    }
+
+    .comunidad-intro {
+        margin-bottom: 35px;
+    }
+
+    .comunidad-intro p {
+        font-size: 1rem;
+    }
+
+    .comunidad-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .comunidad-tarjeta {
+        min-height: auto;
+    }
+}
+
+/* Accesibilidad */
+
+@media (prefers-reduced-motion: reduce) {
+    .comunidad-tarjeta,
+    .comunidad-icono {
+        transition: none;
+    }
+}

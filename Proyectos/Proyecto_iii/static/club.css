@@ -1,0 +1,148 @@
+
+/* ==========================================
+   CLUB COFI - PUNTOS Y NIVELES
+   ========================================== */
+
+/* Sección completa */
+
+.st-key-cofi_club {
+    padding: 45px 55px 55px !important;
+}
+
+/* Título y descripción centrados */
+
+.club-encabezado {
+    max-width: 1000px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.club-encabezado h2 {
+    color: #482619;
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 20px;
+    text-align: center;
+}
+
+.club-encabezado p {
+    color: #956747;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin: 0;
+    text-align: center;
+}
+
+.club-encabezado strong {
+    color: #91430F;
+}
+
+/* ==========================================
+   CUATRO TARJETAS
+   ========================================== */
+
+.club-tarjeta {
+    border-radius: 22px;
+    padding: 28px;
+    min-height: 350px;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0 5px 14px rgba(80, 50, 30, 0.06);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Efecto al pasar el ratón */
+
+.club-tarjeta:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 30px rgba(80, 50, 30, 0.16);
+}
+
+/* Número del nivel */
+
+.club-numero {
+    font-size: 0.8rem;
+    color: #956747;
+    margin-bottom: 17px;
+}
+
+/* Nombre del nivel */
+
+.club-tarjeta h3 {
+    color: #713A16;
+    font-size: 1.3rem;
+    font-weight: 750;
+    margin: 0 0 15px;
+}
+
+/* Puntos */
+
+.club-puntos {
+    color: #984B16;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 17px;
+}
+
+/* Descripción */
+
+.club-descripcion {
+    color: #493B32;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0 0 20px;
+}
+
+/* Recompensa */
+
+.club-beneficio {
+    border-top: 1px solid #D4C0AA;
+    margin-top: auto;
+    padding-top: 17px;
+}
+
+.club-beneficio strong {
+    color: #713A16;
+    font-size: 0.9rem;
+}
+
+.club-beneficio p {
+    color: #493B32;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin: 7px 0 0;
+}
+
+/* ==========================================
+   BOTÓN DE REGISTRO
+   ========================================== */
+
+.club-registro {
+    text-align: center;
+    margin-top: 35px;
+}
+
+/* ==========================================
+   ADAPTACIÓN A MÓVILES
+   ========================================== */
+
+@media (max-width: 900px) {
+    .st-key-cofi_club {
+        padding: 35px 20px !important;
+    }
+
+    .club-tarjeta {
+        min-height: 0;
+    }
+
+    .club-encabezado h2 {
+        font-size: 2rem;
+    }
+}

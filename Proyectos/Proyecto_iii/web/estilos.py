@@ -1,5 +1,5 @@
 
-"""Estilos de COFI."""
+"""Carga los estilos CSS de COFI."""
 
 from pathlib import Path
 
@@ -7,15 +7,22 @@ import streamlit as st
 
 
 def aplicar_estilo():
-    """Carga el CSS de la página web."""
+    """Carga los estilos de cada sección."""
 
     raiz = Path(__file__).resolve().parent.parent
+    carpeta = raiz / "static"
 
-    ruta_css = raiz / "static" / "estilos.css"
+    archivos = [
+        "estilos.css",
+        "club.css",
+        "comunidad.css",
+        "etapas.css",
+        "blog.css"
+    ]
 
-    css = ruta_css.read_text(encoding="utf-8")
+    for nombre in archivos:
+        ruta = carpeta / nombre
 
-    st.markdown(
-        f"<style>{css}</style>",
-        unsafe_allow_html=True
-    )
+        if ruta.is_file():
+            css = ruta.read_text(encoding="utf-8")
+            st.html(f"<style>{css}</style>")

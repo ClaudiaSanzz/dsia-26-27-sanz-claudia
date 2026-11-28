@@ -1,5 +1,5 @@
 
-"""Blog y galería automática de COFI."""
+"""Blog y carrusel automático de COFI."""
 
 import base64
 from pathlib import Path
@@ -10,7 +10,7 @@ from web.navegacion import cambiar_pagina
 
 
 def cargar_fotografias():
-    """Carga las ocho fotografías de la galería."""
+    """Carga las ocho imágenes de static/galeria."""
 
     raiz = Path(__file__).resolve().parent.parent
     carpeta = raiz / "static" / "galeria"
@@ -33,71 +33,54 @@ def cargar_fotografias():
 
 
 def mostrar_carrusel():
-    """Muestra tres fotografías con movimiento automático."""
+    """Muestra un carrusel continuo de fotografías."""
 
     imagenes = cargar_fotografias()
 
     if len(imagenes) < 3:
-        st.info(
-            "Añade al menos tres imágenes en "
-            "static/galeria para mostrar el carrusel."
+        st.warning(
+            "Necesitamos al menos tres fotografías "
+            "en static/galeria."
         )
         return
 
-    # El CSS realiza ocho desplazamientos.
-    # Si hay menos de ocho fotos, repetimos las disponibles.
-    originales = imagenes.copy()
+    # Duplicamos las imágenes para crear el efecto circular.
+    imagenes = imagenes + imagenes
 
-    while len(imagenes) < 8:
-        imagenes.append(
-            originales[len(imagenes) % len(originales)]
-        )
+    fotos_html = ""
 
-    # Repetimos las tres primeras fotografías al final
-    # para que el carrusel pueda volver a empezar.
-    fotos = imagenes + imagenes[:3]
-
-    tarjetas = ""
-
-    for imagen in fotos:
-        tarjetas += f"""
-        <div class="cofi-foto">
+    for imagen in imagenes:
+        fotos_html += f"""
+        <div class="cofi-blog-slide">
             <img src="{imagen}" alt="Fotografía de café">
         </div>
         """
 
-    carrusel = f"""
-    <div class="cofi-carrusel">
-        <div class="cofi-pista">
-            {tarjetas}
-        </div>
-    </div>
-    """
-
-    # st.html evita que las etiquetas se muestren como código
-    st.html(carrusel)
-
-
-def mostrar_blog_inicio():
-    """Sección del blog en la página principal."""
-
-    st.html("""
-    <div class="cofi-seccion cofi-seccion-beige">
-        <div class="cofi-titulo">
-            Un café siempre tiene una historia
-        </div>
-
-        <div class="cofi-intro">
-            Descubre nuevos rincones, ideas y momentos
-            alrededor de una buena taza de café.
+    st.html(f"""
+    <div class="cofi-blog-carousel">
+        <div class="cofi-blog-track">
+            {fotos_html}
         </div>
     </div>
     """)
 
-    # Carrusel de fotografías
-    mostrar_carrusel()
 
-    st.write("")
+def mostrar_blog_inicio():
+    """Sección del blog en la portada."""
+
+    st.html("""
+    <div class="cofi-blog-encabezado">
+        <h2>Cada taza de café esconde una historia</h2>
+
+        <p>
+            Descubre curiosidades, inspiración y rincones
+            con alma cafetera. Hay todo un mundo detrás de
+            cada taza esperando a que lo descubras.
+        </p>
+    </div>
+    """)
+
+    mostrar_carrusel()
 
     izquierda, centro, derecha = st.columns(
         [1.4, 1.2, 1.4]
@@ -106,43 +89,30 @@ def mostrar_blog_inicio():
     with centro:
         if st.button(
             "Descubrir el blog",
-            use_container_width=True
+            use_container_width=True,
+            key="abrir_blog_inicio"
         ):
             cambiar_pagina("blog")
 
 
 def mostrar_blog():
-    """Página completa del blog de COFI."""
+    """Página principal del blog."""
 
     st.html("""
-    <div class="cofi-seccion cofi-seccion-clara">
-        <div class="cofi-titulo">
-            Blog COFI
-        </div>
+    <div class="cofi-blog-encabezado">
+        <h2>Descubre el universo del café</h2>
 
-        <div class="cofi-intro">
-            Un espacio para descubrir historias,
-            tendencias y curiosidades sobre el café.
-        </div>
+        <p>
+            Desde cómo se prepara un espresso perfecto
+            hasta los rincones más acogedores para
+            disfrutar de una buena taza.
+        </p>
     </div>
     """)
 
-    # Carrusel automático
     mostrar_carrusel()
 
-    st.write("")
-    st.write("")
-
-    st.html("""
-    <div class="cofi-titulo">
-        Próximamente en COFI
-    </div>
-
-    <div class="cofi-intro">
-        Historias para disfrutar del café
-        más allá de cada taza.
-    </div>
-    """)
+    st.subheader("Historias para descubrir")
 
     articulos = [
         (
@@ -152,17 +122,17 @@ def mostrar_blog():
         ),
         (
             "Cafeterías para desconectar",
-            "Rincones acogedores donde disfrutar "
-            "de un momento de tranquilidad."
+            "Los rincones más acogedores para "
+            "disfrutar de un momento de tranquilidad."
         ),
         (
-            "Cultura del café",
-            "Historias y curiosidades sobre "
-            "el mundo de las cafeterías."
+            "La cultura del café",
+            "Curiosidades y tradiciones que hacen "
+            "especial cada taza."
         )
     ]
 
-    columnas = st.columns(3, gap="medium")
+    columnas = st.columns(3)
 
     for columna, (titulo, descripcion) in zip(
         columnas, articulos
@@ -172,6 +142,6 @@ def mostrar_blog():
             <div class="cofi-blog-tarjeta">
                 <h3>{titulo}</h3>
                 <p>{descripcion}</p>
-                <small>Artículo próximamente</small>
+                <small>Artículo en preparación</small>
             </div>
             """)

@@ -5,22 +5,29 @@
 
 :root {
     --crema: #F7F4EF;
-    --beige: #F3E5D2;
+    --beige: #F0E7DB;
     --beige-claro: #FAF3E9;
-    --beige-medio: #E9DDC5;
     --marron: #904713;
     --marron-oscuro: #402A23;
     --texto-suave: #916C52;
 }
 
+/* Fondo general */
+
 .stApp {
     background-color: var(--crema);
     color: var(--marron-oscuro);
+    overflow-x: hidden;
 }
 
 .block-container {
     max-width: 100%;
     padding: 2rem 0 3rem;
+}
+
+html,
+body {
+    overflow-x: hidden;
 }
 
 #MainMenu,
@@ -32,7 +39,13 @@ footer {
     display: none;
 }
 
-h1, h2, h3 {
+[data-testid="stMainBlockContainer"] {
+    padding-top: 2rem;
+}
+
+h1,
+h2,
+h3 {
     color: var(--marron-oscuro);
 }
 
@@ -52,10 +65,44 @@ h1, h2, h3 {
 .cofi-menu-separador {
     height: 1px;
     background: #E5D8C9;
-    margin: 15px 0 25px;
+    max-width: 1380px;
+    margin: 0 auto 0;
+}
+/* Acercar la fotografía al menú */
+
+.cofi-hero {
+    margin-top: -15px;
 }
 
-/* Botones */
+/* Contenedor del menú */
+
+[data-testid="stHorizontalBlock"]:has(.cofi-logo) {
+    max-width: 1180px;
+    margin: 0 auto;
+    align-items: center;
+    min-height: 85px;
+}
+
+/* Espacio para evitar botones cortados */
+
+[data-testid="stHorizontalBlock"]:has(.cofi-logo) div.stButton {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+[data-testid="stHorizontalBlock"]:has(.cofi-logo) button {
+    min-height: 44px;
+    height: auto;
+    margin: 0;
+    padding: 10px 12px;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+
+/* ==========================================
+   BOTONES
+   ========================================== */
 
 div.stButton > button,
 div.stFormSubmitButton > button {
@@ -64,6 +111,7 @@ div.stFormSubmitButton > button {
 
     background-color: var(--marron);
     color: #FFFFFF;
+
     border: 1px solid var(--marron);
     border-radius: 25px;
 
@@ -76,24 +124,30 @@ div.stFormSubmitButton > button {
         background-color 0.25s ease;
 }
 
+/* Efecto al pasar el ratón */
+
 div.stButton > button:hover,
 div.stFormSubmitButton > button:hover {
     background-color: #AD6028;
-    color: white;
+    color: #FFFFFF;
     border-color: #AD6028;
 
     transform: translateY(-2px);
-    box-shadow: 0 8px 18px rgba(80, 40, 20, 0.16);
+
+    box-shadow:
+        0 8px 18px rgba(80, 40, 20, 0.16);
 }
+
+/* Mantener el texto blanco */
 
 div.stButton > button:focus,
 div.stFormSubmitButton > button:focus {
-    color: white;
+    color: #FFFFFF;
 }
 
 
 /* ==========================================
-   PORTADA A PANTALLA COMPLETA
+   PORTADA PRINCIPAL
    ========================================== */
 
 .cofi-hero {
@@ -103,10 +157,13 @@ div.stFormSubmitButton > button:focus {
     height: calc(100vh - 180px);
     min-height: 550px;
     max-height: 750px;
-    margin-left: 0;
+
+    margin: 0;
+    padding: 0;
 
     overflow: hidden;
     border-radius: 0;
+
     background: #4B3329;
 
     display: flex;
@@ -115,12 +172,11 @@ div.stFormSubmitButton > button:focus {
     text-align: center;
 }
 
-/* Fotografía de la cafetería */
+/* Fotografía */
 
 .cofi-hero > img {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
 
     width: 100%;
     height: 100%;
@@ -131,17 +187,18 @@ div.stFormSubmitButton > button:focus {
     z-index: 0;
 }
 
-/* Capa oscura sobre la fotografía */
+/* Capa oscura */
 
 .cofi-oscuro {
     position: absolute;
     inset: 0;
 
     background: rgba(0, 0, 0, 0.60);
+
     z-index: 1;
 }
 
-/* Textos sobre la fotografía */
+/* Contenedor del texto */
 
 .cofi-hero-texto {
     position: relative;
@@ -149,17 +206,23 @@ div.stFormSubmitButton > button:focus {
 
     width: 100%;
     max-width: 1200px;
+
     padding: 45px 30px;
 
     color: #FFFFFF;
 }
 
+/* Encuentra en Madrid tu */
+
 .cofi-hero-superior {
     font-size: clamp(2rem, 4.5vw, 4.5rem);
     font-weight: 400;
     line-height: 1.2;
+
     color: #FFFFFF;
 }
+
+/* Cafetería Ideal */
 
 .cofi-hero-texto h1 {
     font-size: clamp(4rem, 9vw, 9rem);
@@ -172,17 +235,23 @@ div.stFormSubmitButton > button:focus {
     color: #FFFFFF !important;
 }
 
+/* Tu café, tu momento */
+
 .cofi-hero-texto h2 {
     font-size: clamp(2rem, 3.7vw, 3.6rem);
     font-weight: 750;
 
     margin: 0 0 25px;
+
     color: #FFFFFF !important;
 }
+
+/* Descripción */
 
 .cofi-hero-texto p {
     font-size: 1.2rem;
     line-height: 1.7;
+
     color: #FFFFFF !important;
 
     max-width: 680px;
@@ -191,21 +260,58 @@ div.stFormSubmitButton > button:focus {
 
 
 /* ==========================================
-   SECCIONES CON DIFERENTES FONDOS
+   ANIMACIÓN DE ENTRADA DE PORTADA
+   ========================================== */
+
+@keyframes cofi-aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(45px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Los textos aparecen uno detrás de otro */
+
+.cofi-hero-superior {
+    animation: cofi-aparecer 0.8s ease-out both;
+}
+
+.cofi-hero-texto h1 {
+    animation: cofi-aparecer 0.9s ease-out 0.2s both;
+}
+
+.cofi-hero-texto h2 {
+    animation: cofi-aparecer 0.9s ease-out 0.4s both;
+}
+
+.cofi-hero-texto p {
+    animation: cofi-aparecer 0.9s ease-out 0.6s both;
+}
+
+
+/* ==========================================
+   SECCIONES GENERALES
    ========================================== */
 
 .cofi-seccion {
     padding: 45px 25px;
-    margin: 30px 0;
+    margin: 30px auto;
+
+    max-width: 1180px;
     border-radius: 18px;
 }
 
 .cofi-seccion-clara {
-    background: #F7F4EF;
+    background: var(--crema);
 }
 
 .cofi-seccion-beige {
-    background: #F3E5D2;
+    background: var(--beige);
 }
 
 .cofi-seccion-crema {
@@ -220,17 +326,19 @@ div.stFormSubmitButton > button:focus {
 
 .cofi-titulo {
     text-align: center;
-    color: #4B2A1C;
 
+    color: #4B2A1C;
     font-size: 2.2rem;
     font-weight: 800;
 
     margin-bottom: 15px;
 }
 
+/* Subtítulos */
+
 .cofi-intro {
     text-align: center;
-    color: #916C52;
+    color: var(--texto-suave);
 
     font-size: 1.08rem;
     line-height: 1.7;
@@ -241,248 +349,48 @@ div.stFormSubmitButton > button:focus {
 
 
 /* ==========================================
-   CLUB COFI - CUATRO NIVELES
+   FONDOS ALTERNOS
    ========================================== */
 
-.cofi-tarjeta {
-    padding: 25px;
-    border-radius: 20px;
+/* Beige: primera, tercera y quinta sección */
 
-    min-height: 310px;
-    height: 100%;
-
-    background: #F3E5D2;
-
-    display: flex;
-    flex-direction: column;
-
-    box-shadow: 0 4px 12px rgba(80, 50, 30, 0.07);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+.st-key-cofi_club,
+.st-key-cofi_como,
+.st-key-cofi_participa {
+    background-color: #F0E7DB;
 }
 
-.cofi-tarjeta small {
-    color: #8B664F;
-    font-size: 0.8rem;
-    margin-bottom: 15px;
+/* Marfil: segunda y cuarta sección */
+
+.st-key-cofi_etapas,
+.st-key-cofi_blog {
+    background-color: #F7F4EF;
 }
 
-.cofi-tarjeta h3 {
-    color: #713A16;
-    font-size: 1.25rem;
-    font-weight: 750;
-    margin: 0 0 15px;
-}
+/* Espacio interior */
 
-.cofi-tarjeta p {
-    color: #493B32;
-    font-size: 0.95rem;
-    line-height: 1.65;
-}
-
-.cofi-puntos {
-    color: #984B16;
-    font-size: 0.98rem;
-    font-weight: 700;
-
-    margin-bottom: 15px;
-}
-
-.cofi-beneficio {
-    border-top: 1px solid #D4C0AA;
-
-    margin-top: auto;
-    padding-top: 15px;
-}
-
-.cofi-beneficio strong {
-    color: #713A16;
-    font-size: 0.88rem;
-}
-
-.cofi-beneficio p {
-    margin-bottom: 0;
-}
-
-
-/* ==========================================
-   CÓMO FUNCIONA COFI
-   ========================================== */
-
-.cofi-paso {
-    background: #F2E3CD;
-    padding: 26px;
-
-    border-radius: 18px;
-    min-height: 165px;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.cofi-paso strong {
-    color: #713A16;
-    font-size: 1.2rem;
-}
-
-.cofi-paso p {
-    color: #59483A;
-    line-height: 1.6;
-}
-
-
-/* ==========================================
-   EFECTO HOVER DE LAS TARJETAS
-   ========================================== */
-
-.cofi-tarjeta:hover,
-.cofi-paso:hover,
-.cofi-ranking:hover,
-.cofi-blog-tarjeta:hover {
-    transform: translateY(-8px);
-
-    box-shadow:
-        0 16px 30px rgba(80, 50, 30, 0.18);
-}
-
-
-/* ==========================================
-   CARRUSEL AUTOMÁTICO Y CIRCULAR
-   ========================================== */
-
-.cofi-carrusel {
+.st-key-cofi_club,
+.st-key-cofi_etapas,
+.st-key-cofi_como,
+.st-key-cofi_blog,
+.st-key-cofi_participa {
     width: 100%;
-    overflow: hidden;
-
-    margin: 30px 0;
+    padding: 55px clamp(20px, 5vw, 75px);
 }
 
-.cofi-pista {
-    --hueco: 18px;
+/* Los títulos no tienen otro fondo encima */
 
-    --paso: calc(
-        (100% - 2 * var(--hueco)) / 3
-        + var(--hueco)
-    );
-
-    display: flex;
-    gap: var(--hueco);
-
-    animation: cofi-deslizar 48s linear infinite;
-}
-
-.cofi-foto {
-    flex: 0 0 calc(
-        (100% - 2 * var(--hueco)) / 3
-    );
-
-    margin: 0;
-}
-
-.cofi-foto img {
-    width: 100%;
-    height: 240px;
-
-    object-fit: cover;
-    border-radius: 15px;
-
-    transition: transform 0.3s ease;
-}
-
-/* Efecto al pasar el ratón */
-
-.cofi-foto img:hover {
-    transform: scale(1.03);
-}
-
-/* Pausa el carrusel cuando pasamos el ratón */
-
-.cofi-carrusel:hover .cofi-pista {
-    animation-play-state: paused;
-}
-
-/*
-    El carrusel avanza una imagen cada vez.
-    Las tres primeras están duplicadas al final
-    para cerrar el ciclo sin salto visible.
-*/
-
-@keyframes cofi-deslizar {
-
-    0%, 7% {
-        transform: translateX(0);
-    }
-
-    12.5%, 19.5% {
-        transform: translateX(calc(-1 * var(--paso)));
-    }
-
-    25%, 32% {
-        transform: translateX(calc(-2 * var(--paso)));
-    }
-
-    37.5%, 44.5% {
-        transform: translateX(calc(-3 * var(--paso)));
-    }
-
-    50%, 57% {
-        transform: translateX(calc(-4 * var(--paso)));
-    }
-
-    62.5%, 69.5% {
-        transform: translateX(calc(-5 * var(--paso)));
-    }
-
-    75%, 82% {
-        transform: translateX(calc(-6 * var(--paso)));
-    }
-
-    87.5%, 94.5% {
-        transform: translateX(calc(-7 * var(--paso)));
-    }
-
-    100% {
-        transform: translateX(calc(-8 * var(--paso)));
-    }
+.st-key-cofi_club .cofi-seccion,
+.st-key-cofi_etapas .cofi-seccion,
+.st-key-cofi_como .cofi-seccion,
+.st-key-cofi_blog .cofi-seccion,
+.st-key-cofi_participa .cofi-seccion {
+    background: transparent !important;
 }
 
 
 /* ==========================================
-   BLOG
-   ========================================== */
-
-.cofi-blog-tarjeta {
-    background: #F3E5D2;
-
-    border-radius: 18px;
-    padding: 25px;
-    min-height: 190px;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.cofi-blog-tarjeta h3 {
-    color: #713A16;
-    font-size: 1.2rem;
-}
-
-.cofi-blog-tarjeta p {
-    color: #59483A;
-    line-height: 1.6;
-}
-
-.cofi-blog-tarjeta small {
-    color: #916C52;
-}
-
-
-/* ==========================================
-   RANKING
+   RANKING DE CAFETERÍAS
    ========================================== */
 
 .cofi-ranking {
@@ -499,13 +407,20 @@ div.stFormSubmitButton > button:focus {
         box-shadow 0.3s ease;
 }
 
+.cofi-ranking:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 16px 30px rgba(80, 50, 30, 0.18);
+}
+
 .cofi-ranking strong {
     color: #402A23;
 }
 
 .cofi-aviso {
     font-size: 0.88rem;
-    color: #916C52;
+    color: var(--texto-suave);
     margin-top: 8px;
 }
 
@@ -525,7 +440,7 @@ div[data-baseweb="select"] > div,
 
 
 /* ==========================================
-   RESPONSIVE: TABLETS
+   ADAPTACIÓN A TABLETS
    ========================================== */
 
 @media (max-width: 1000px) {
@@ -534,18 +449,14 @@ div[data-baseweb="select"] > div,
         font-size: clamp(3.5rem, 8vw, 6rem);
     }
 
-    .cofi-tarjeta {
-        padding: 18px;
-    }
-
-    .cofi-tarjeta h3 {
-        font-size: 1.1rem;
+    .cofi-titulo {
+        font-size: 2rem;
     }
 }
 
 
 /* ==========================================
-   RESPONSIVE: MÓVILES
+   ADAPTACIÓN A MÓVILES
    ========================================== */
 
 @media (max-width: 700px) {
@@ -553,6 +464,8 @@ div[data-baseweb="select"] > div,
     .block-container {
         padding-top: 1rem;
     }
+
+    /* Portada */
 
     .cofi-hero {
         height: 560px;
@@ -580,6 +493,8 @@ div[data-baseweb="select"] > div,
         font-size: 1rem;
     }
 
+    /* Secciones */
+
     .cofi-seccion {
         padding: 30px 15px;
     }
@@ -588,306 +503,22 @@ div[data-baseweb="select"] > div,
         font-size: 1.7rem;
     }
 
-    .cofi-tarjeta {
-        min-height: auto;
-    }
-
-    .cofi-foto img {
-        height: 170px;
+    .st-key-cofi_club,
+    .st-key-cofi_etapas,
+    .st-key-cofi_como,
+    .st-key-cofi_blog,
+    .st-key-cofi_participa {
+        padding: 35px 20px;
     }
 }
 
-/* Accesibilidad: reducir animaciones si el usuario lo prefiere */
+
+/* ==========================================
+   ACCESIBILIDAD
+   ========================================== */
 
 @media (prefers-reduced-motion: reduce) {
-    .cofi-pista {
-        animation: none;
-    }
 
-    .cofi-tarjeta,
-    .cofi-paso,
-    .cofi-ranking,
-    .cofi-blog-tarjeta {
-        transition: none;
-    }
-}
-html,
-body,
-.stApp {
-    overflow-x: hidden;
-}
-/* MENÚ SUPERIOR */
-
-[data-testid="stHorizontalBlock"]:has(.cofi-logo) {
-    max-width: 1180px;
-    margin: 0 auto;
-    align-items: center;
-    min-height: 85px;
-}
-
-[data-testid="stHorizontalBlock"]:has(.cofi-logo) div.stButton {
-    padding-top: 8px;
-    padding-bottom: 8px;
-}
-
-[data-testid="stHorizontalBlock"]:has(.cofi-logo) button {
-    min-height: 44px;
-    height: auto;
-    margin: 0;
-    padding: 10px 12px;
-    line-height: 1.4;
-    white-space: nowrap;
-}
-
-/* Evita que el contenido quede tapado por arriba */
-
-[data-testid="stMainBlockContainer"] {
-    padding-top: 2rem;
-}
-/* CONTENIDO CENTRADO */
-
-.cofi-seccion {
-    max-width: 1180px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.cofi-menu-separador {
-    max-width: 1180px;
-    margin: 12px auto 25px;
-}
-
-
-/* ==========================================
-   ANIMACIÓN DE ENTRADA DE PORTADA
-   ========================================== */
-
-@keyframes cofi-aparecer {
-    from {
-        opacity: 0;
-        transform: translateY(45px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.cofi-hero-superior {
-    animation: cofi-aparecer 0.8s ease-out both;
-}
-
-.cofi-hero-texto h1 {
-    animation: cofi-aparecer 0.9s ease-out 0.2s both;
-}
-
-.cofi-hero-texto h2 {
-    animation: cofi-aparecer 0.9s ease-out 0.4s both;
-}
-
-.cofi-hero-texto p {
-    animation: cofi-aparecer 0.9s ease-out 0.6s both;
-}
-
-
-/* ==========================================
-   FONDOS ALTERNOS
-   ========================================== */
-
-.st-key-cofi_club,
-.st-key-cofi_como,
-.st-key-cofi_participa {
-    background: #F7F4EF;
-}
-
-.st-key-cofi_etapas,
-.st-key-cofi_blog {
-    background: #F0E7DB;
-}
-
-/* Espacio interior de cada sección */
-
-.st-key-cofi_club,
-.st-key-cofi_etapas,
-.st-key-cofi_como,
-.st-key-cofi_blog,
-.st-key-cofi_participa {
-    padding: 55px clamp(20px, 5vw, 75px);
-    width: 100%;
-}
-
-/* El fondo de cada encabezado será transparente */
-
-.st-key-cofi_club .cofi-seccion,
-.st-key-cofi_etapas .cofi-seccion,
-.st-key-cofi_como .cofi-seccion,
-.st-key-cofi_blog .cofi-seccion,
-.st-key-cofi_participa .cofi-seccion {
-    background: transparent !important;
-}
-
-
-/* ==========================================
-   SECCIÓN DE ETAPAS
-   ========================================== */
-
-.cofi-etapas {
-    padding: 15px 0;
-}
-
-.cofi-etapas-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 25px;
-
-    position: relative;
-    margin-top: 40px;
-}
-
-/* Línea que conecta los tres círculos */
-
-.cofi-etapas-grid::before {
-    content: "";
-    position: absolute;
-
-    height: 4px;
-    top: 56px;
-    left: 12%;
-    right: 12%;
-
-    background: #DFC9AC;
-}
-
-.cofi-etapa {
-    position: relative;
-    text-align: center;
-}
-
-/* Círculos */
-
-.cofi-etapa-circulo {
-    height: 115px;
-    width: 115px;
-
-    background: #FFFDF9;
-    border: 5px solid #EEDFC9;
-    border-radius: 50%;
-
-    margin: 0 auto 30px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: #824113;
-    font-size: 2rem;
-    font-weight: 750;
-
-    box-shadow: 0 5px 12px rgba(80, 50, 30, 0.12);
-
-    transition: transform 0.3s ease;
-}
-
-/* Tarjetas */
-
-.cofi-etapa-tarjeta {
-    background: #F5E7D4;
-    border-radius: 20px;
-
-    padding: 30px 20px;
-    min-height: 205px;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.cofi-etapa-tarjeta span {
-    display: block;
-
-    color: #994B18;
-    font-size: 0.9rem;
-    font-weight: 650;
-
-    margin-bottom: 15px;
-}
-
-.cofi-etapa-tarjeta h3 {
-    color: #402A23;
-    font-size: 1.3rem;
-
-    margin: 0 0 18px;
-}
-
-.cofi-etapa-tarjeta p {
-    color: #59483A;
-    font-size: 0.95rem;
-    line-height: 1.65;
-}
-
-/* Elevación al pasar el ratón */
-
-.cofi-etapa:hover .cofi-etapa-circulo {
-    transform: translateY(-5px);
-}
-
-.cofi-etapa:hover .cofi-etapa-tarjeta {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 30px rgba(80, 50, 30, 0.17);
-}
-
-
-/* ==========================================
-   TEXTO EXPLICATIVO INFERIOR
-   ========================================== */
-
-.cofi-etapas-explicacion {
-    max-width: 950px;
-    margin: 75px auto 10px;
-    text-align: center;
-}
-
-.cofi-etapas-explicacion p {
-    color: #49382C;
-    font-size: 1.15rem;
-    line-height: 1.9;
-}
-
-.cofi-etapas-frase {
-    font-style: italic;
-    color: #996A4C !important;
-    margin-top: 25px;
-}
-
-
-/* ==========================================
-   MÓVILES
-   ========================================== */
-
-@media (max-width: 700px) {
-    .cofi-etapas-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .cofi-etapas-grid::before {
-        display: none;
-    }
-
-    .cofi-etapa-circulo {
-        width: 85px;
-        height: 85px;
-        font-size: 1.5rem;
-    }
-
-    .cofi-etapa-tarjeta {
-        min-height: auto;
-    }
-}
-
-/* Accesibilidad */
-
-@media (prefers-reduced-motion: reduce) {
     .cofi-hero-superior,
     .cofi-hero-texto h1,
     .cofi-hero-texto h2,
@@ -896,170 +527,131 @@ body,
         opacity: 1;
         transform: none;
     }
+
+    .cofi-ranking {
+        transition: none;
+    }
+}
+/* EVITAR QUE LOS BOTONES DEL MENÚ SE CORTEN */
+
+[data-testid="stHorizontalBlock"]:has(.cofi-logo) {
+    min-height: 90px !important;
+    align-items: center !important;
+    overflow: visible !important;
+}
+
+[data-testid="stHorizontalBlock"]:has(.cofi-logo) [data-testid="stColumn"] {
+    overflow: visible !important;
+}
+
+[data-testid="stHorizontalBlock"]:has(.cofi-logo) div.stButton {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    overflow: visible !important;
+}
+
+[data-testid="stHorizontalBlock"]:has(.cofi-logo) button {
+    min-height: 46px !important;
+    margin: 0 !important;
+    padding: 10px 14px !important;
+    line-height: 1.4 !important;
 }
 
 /* ==========================================
-   COFI - ALTERNANCIA DEFINITIVA DE FONDOS
+   MENÚ COFI - NAVEGACIÓN DEFINITIVA
    ========================================== */
 
-/* Beige: primera, tercera y quinta sección */
-
-.st-key-cofi_club,
-.st-key-cofi_como,
-.st-key-cofi_participa {
-    background-color: #F0E7DB;
-}
-
-/* Marfil: segunda y cuarta sección */
-
-.st-key-cofi_etapas,
-.st-key-cofi_blog {
-    background-color: #F7F4EF;
-}
-
-/* Eliminar fondos de encabezados interiores */
-
-.st-key-cofi_club .cofi-seccion,
-.st-key-cofi_como .cofi-seccion,
-.st-key-cofi_participa .cofi-seccion,
-.st-key-cofi_etapas .cofi-seccion,
-.st-key-cofi_blog .cofi-seccion {
-    background: transparent !important;
-}
-
-
-/* ==========================================
-   NUEVA SECCIÓN: COMUNIDAD COFI
-   ========================================== */
-
-.cofi-comunidad {
-    padding: 25px 0 35px;
-}
-
-/* Explicación centrada */
-
-.cofi-comunidad-texto {
-    max-width: 950px;
-    margin: 0 auto 65px;
-    text-align: center;
-}
-
-.cofi-comunidad-texto p {
-    color: #49382C;
-    font-size: 1.13rem;
-    line-height: 1.85;
-    margin-bottom: 22px;
-}
-
-.cofi-comunidad-texto strong {
-    color: #402A23;
-}
-
-.cofi-comunidad-frase {
-    font-style: italic;
-    color: #996A4C !important;
-    margin-top: 30px;
-}
-
-/* Tres tarjetas horizontales */
-
-.cofi-comunidad-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 25px;
-    padding-top: 20px;
-}
-
-.cofi-comunidad-tarjeta {
-    position: relative;
-
-    background: #F7E8D5;
-    border-radius: 20px;
-    padding: 48px 27px 28px;
-
-    min-height: 215px;
-    text-align: left;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-/* Colores ligeramente diferentes */
-
-.cofi-comunidad-tarjeta:nth-child(2) {
-    background: #E8DAC1;
-}
-
-.cofi-comunidad-tarjeta:nth-child(3) {
-    background: #DED1C1;
-}
-
-/* Círculos sobre las tarjetas */
-
-.cofi-comunidad-icono {
-    position: absolute;
-    top: -34px;
-    right: 22px;
-
-    width: 70px;
-    height: 70px;
+.cofi-navbar {
+    width: 100%;
+    max-width: 1380px;
+    min-height: 100px;
+    margin: 0 auto;
+    padding: 20px 30px;
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    box-sizing: border-box;
+    overflow: visible;
+}
+
+.cofi-navbar-logo {
+    color: #713A16 !important;
+    font-size: 2.4rem;
+    font-weight: 900;
+    letter-spacing: -0.07em;
+    text-decoration: none !important;
+}
+
+.cofi-navbar-enlaces {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.cofi-nav-enlace {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
 
-    background: #FFFFFF;
-    border-radius: 50%;
+    min-height: 45px;
+    padding: 10px 24px;
 
-    font-size: 1.75rem;
+    background: #904713;
+    color: white !important;
 
-    box-shadow: 0 6px 15px rgba(80, 50, 30, 0.12);
-
-    transition: transform 0.3s ease;
-}
-
-.cofi-comunidad-tarjeta h3 {
-    color: #402A23;
-    font-size: 1.25rem;
-    margin: 0 0 15px;
-}
-
-.cofi-comunidad-tarjeta p {
-    color: #59483A;
+    border-radius: 30px;
+    text-decoration: none !important;
     font-size: 0.95rem;
-    line-height: 1.7;
-    margin: 0;
+    font-weight: 600;
+    white-space: nowrap;
+
+    box-sizing: border-box;
+    transition: background 0.2s, transform 0.2s;
 }
 
-/* Elevación al pasar el ratón */
-
-.cofi-comunidad-tarjeta:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 30px rgba(80, 50, 30, 0.18);
+.cofi-nav-enlace:hover {
+    background: #AD6028;
+    transform: translateY(-2px);
 }
 
-.cofi-comunidad-tarjeta:hover .cofi-comunidad-icono {
-    transform: translateY(-4px);
+.cofi-nav-activo {
+    background: #713A16;
 }
 
+.cofi-menu-separador {
+    max-width: 1380px;
+    margin: 0 auto 15px;
+}
 
-/* ==========================================
-   ADAPTACIÓN A MÓVILES
-   ========================================== */
+/* Pantallas pequeñas */
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
+    .cofi-navbar {
+    width: 100%;
+    max-width: 1380px;
+    min-height: 100px;
+    margin: 0 auto;
+    padding: 35px 30px 10px;
 
-    .cofi-comunidad-grid {
-        grid-template-columns: 1fr;
-        gap: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    box-sizing: border-box;
+    overflow: visible;
     }
 
-    .cofi-comunidad-texto p {
-        font-size: 1rem;
+    .cofi-navbar-enlaces {
+        gap: 8px;
     }
 
-    .cofi-comunidad-tarjeta {
-        min-height: auto;
+    .cofi-nav-enlace {
+        padding: 10px 15px;
     }
 }

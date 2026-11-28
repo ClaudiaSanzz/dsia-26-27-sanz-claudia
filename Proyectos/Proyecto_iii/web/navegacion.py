@@ -1,12 +1,11 @@
 
-"""Menú y navegación de COFI."""
+"""Menú de navegación de COFI."""
 
 import streamlit as st
 
 
 def cambiar_pagina(pagina):
-    """Cambia la página que se está mostrando."""
-
+    """Cambia de página desde otros botones de la web."""
     st.query_params["pagina"] = pagina
     st.rerun()
 
@@ -14,17 +13,7 @@ def cambiar_pagina(pagina):
 def mostrar_menu():
     """Muestra el menú superior de COFI."""
 
-    columnas = st.columns(
-        [2.4, 1, 1.5, 1.1, 1, 1.5, 1.1],
-        gap="small",
-        vertical_alignment="center"
-    )
-
-    with columnas[0]:
-        st.markdown(
-            '<div class="cofi-logo">cofi.</div>',
-            unsafe_allow_html=True
-        )
+    pagina_actual = st.query_params.get("pagina", "inicio")
 
     paginas = [
         ("Inicio", "inicio"),
@@ -35,19 +24,26 @@ def mostrar_menu():
         ("Estado", "estado")
     ]
 
-    for columna, (nombre, pagina) in zip(
-        columnas[1:], paginas
-    ):
+    enlaces = ""
 
-        with columna:
-            if st.button(
-                nombre,
-                key=f"menu_{pagina}",
-                use_container_width=True
-            ):
-                cambiar_pagina(pagina)
+    for nombre, pagina in paginas:
+        clase = "cofi-nav-activo" if pagina == pagina_actual else ""
 
-    st.markdown(
-        '<div class="cofi-menu-separador"></div>',
-        unsafe_allow_html=True
-    )
+        enlaces += (
+            f'<a class="cofi-nav-enlace {clase}" '
+            f'href="?pagina={pagina}">{nombre}</a>'
+        )
+
+    st.html(f"""
+    <nav class="cofi-navbar">
+        <a class="cofi-navbar-logo" href="?pagina=inicio">
+            cofi.
+        </a>
+
+        <div class="cofi-navbar-enlaces">
+            {enlaces}
+        </div>
+    </nav>
+    """)
+
+    st.html('<div class="cofi-menu-separador"></div>')

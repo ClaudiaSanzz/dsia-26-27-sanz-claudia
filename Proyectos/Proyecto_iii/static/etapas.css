@@ -1,0 +1,130 @@
+
+/* ==========================================
+   COFI - ETAPAS
+   ========================================== */
+
+.cofi-etapas {
+    padding: 15px 0;
+}
+
+.cofi-etapas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+
+    position: relative;
+    margin-top: 40px;
+}
+
+/* Línea que conecta los círculos */
+
+.cofi-etapas-grid::before {
+    content: "";
+    position: absolute;
+
+    height: 4px;
+    top: 56px;
+    left: 12%;
+    right: 12%;
+
+    background: #DFC9AC;
+}
+
+/* Cada etapa */
+
+.cofi-etapa {
+    position: relative;
+    text-align: center;
+}
+
+/* Círculos */
+
+.cofi-etapa-circulo {
+    width: 115px;
+    height: 115px;
+
+    background: #FFFDF9;
+    border: 5px solid #EEDFC9;
+    border-radius: 50%;
+
+    margin: 0 auto 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #824113;
+    font-size: 2rem;
+    font-weight: 750;
+
+    box-shadow: 0 5px 12px rgba(80, 50, 30, 0.12);
+
+    transition: transform 0.3s ease;
+}
+
+/* Tarjetas */
+
+.cofi-etapa-tarjeta {
+    background: #F5E7D4;
+    border-radius: 20px;
+    padding: 30px 20px;
+    min-height: 205px;
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.cofi-etapa-tarjeta span {
+    display: block;
+
+    color: #994B18;
+    font-size: 0.9rem;
+    font-weight: 650;
+
+    margin-bottom: 15px;
+}
+
+.cofi-etapa-tarjeta h3 {
+    color: #402A23;
+    font-size: 1.3rem;
+    margin: 0 0 18px;
+}
+
+.cofi-etapa-tarjeta p {
+    color: #59483A;
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+/* Efecto al pasar el ratón */
+
+.cofi-etapa:hover .cofi-etapa-circulo {
+    transform: translateY(-5px);
+}
+
+.cofi-etapa:hover .cofi-etapa-tarjeta {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 30px rgba(80, 50, 30, 0.17);
+}
+
+/* Móviles */
+
+@media (max-width: 700px) {
+    .cofi-etapas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cofi-etapas-grid::before {
+        display: none;
+    }
+
+    .cofi-etapa-circulo {
+        width: 85px;
+        height: 85px;
+        font-size: 1.5rem;
+    }
+
+    .cofi-etapa-tarjeta {
+        min-height: auto;
+    }
+}

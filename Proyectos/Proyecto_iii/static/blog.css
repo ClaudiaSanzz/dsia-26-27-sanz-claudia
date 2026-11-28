@@ -1,0 +1,156 @@
+/* =========================
+   BLOG COFI
+========================= */
+
+.cofi-blog-section {
+    background: #f0e6d8;
+    padding: 68px 0 72px 0;
+    overflow: hidden;
+}
+
+.cofi-blog-inner {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.cofi-blog-title {
+    text-align: center;
+    font-size: 3rem;
+    line-height: 1.15;
+    font-weight: 800;
+    color: #5a2b18;
+    margin: 0 20px 16px 20px;
+}
+
+.cofi-blog-subtitle {
+    max-width: 920px;
+    margin: 0 auto 36px auto;
+    text-align: center;
+    font-size: 1.45rem;
+    line-height: 1.75;
+    color: #a26d44;
+    padding: 0 20px;
+}
+
+.cofi-blog-carousel {
+    width: 100%;
+    overflow: hidden;
+    padding: 12px 0;
+}
+
+.cofi-blog-track {
+    display: flex;
+    gap: 22px;
+    width: max-content;
+    animation: cofiBlogScroll 32s linear infinite;
+    padding-left: 36px;
+}
+
+.cofi-blog-carousel:hover .cofi-blog-track {
+    animation-play-state: paused;
+}
+
+.cofi-blog-slide {
+    flex: 0 0 auto;
+    width: 430px;
+    height: 280px;
+    border-radius: 26px;
+    overflow: hidden;
+    box-shadow: 0 12px 26px rgba(92, 54, 25, 0.14);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cofi-blog-slide:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 34px rgba(92, 54, 25, 0.2);
+}
+
+.cofi-blog-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.cofi-blog-button-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 34px;
+}
+
+.cofi-blog-button {
+    display: inline-block;
+    padding: 16px 34px;
+    border-radius: 999px;
+    background: #a85e1c;
+    color: white !important;
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-decoration: none !important;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+    box-shadow: 0 10px 22px rgba(92, 54, 25, 0.18);
+}
+
+.cofi-blog-button:hover {
+    background: #8f4f16;
+    transform: translateY(-3px);
+    box-shadow: 0 16px 28px rgba(92, 54, 25, 0.22);
+}
+
+@keyframes cofiBlogScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 900px) {
+    .cofi-blog-title {
+        font-size: 2.2rem;
+    }
+
+    .cofi-blog-subtitle {
+        font-size: 1.12rem;
+    }
+
+    .cofi-blog-slide {
+        width: 300px;
+        height: 210px;
+    }
+}
+
+/* Encabezados del blog */
+
+.cofi-blog-encabezado {
+    text-align: center;
+    padding: 45px 20px 30px;
+}
+
+.cofi-blog-encabezado h2 {
+    color: #5A2B18;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.cofi-blog-encabezado p {
+    color: #A26D44;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* Adaptación a móviles */
+
+@media (max-width: 700px) {
+    .cofi-blog-encabezado h2 {
+        font-size: 2rem;
+    }
+
+    .cofi-blog-encabezado p {
+        font-size: 1rem;
+    }
+}
